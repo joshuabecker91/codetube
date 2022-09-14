@@ -7,12 +7,14 @@ Want to use Flask if we can't get Django working for any reason. Login and Regis
 Project Idea:
 CodeTube - a YouTube clone but dedicated to software development. Build a full stack app/website where users can share and watch videos similar to the look and feel of YouTube but called "CodeTube". The platform allows users to watch content without being logged in. However a login and registration is provided per project requirements. When users are logged in they can CRUD videos to contribute / add new videos to the platform via a video source link. The videos, website, and all content is targeted to cater an audience that is learning how to code.
 
+
 Names of group members and their primary role on project:
 Front-End - Summer and Sitora
 Models - Jason and Jake
 Controllers - Josh
 
 Details:
+
 Summer 
 - Leading HTML
 - available to help Sitora if/when needed
