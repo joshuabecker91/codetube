@@ -1,5 +1,3 @@
-Group Project Collaborators: Jake Miller, Jason Harrel, Joshua Becker, Sitora Pekker, Summer King
-
 Team: #1
 Project Title: CodeTube
 Project Stack: Python
@@ -73,5 +71,3 @@ Project Responsibilities:
     - setup and help with GitHub if/when needed
 
     Jason, Jake, Josh - all together setting up general backend, file structure, dependencies, server.py... and getting coordinated.
-
-"# codetube" 

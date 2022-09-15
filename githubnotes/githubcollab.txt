@@ -1,0 +1,45 @@
+
+SETUP YOUR INITIAL REPOSITORY - Steps
+1. Create an empty folder with exactly the same name as repo 'codetube'
+2. cd into that folder
+3. git init 
+4. git remote add origin https://github.com/joshuabecker91/codetube.git
+5. git remote -v
+6. git branch -M main
+7. git pull origin main  
+   Grabs all the updated files from the main repo
+8. When you want to start coding a new feature start new branch first
+9. git status to see what has been changed in your branch
+10. git add .  stage your files
+11. git commit -m "uploading updates"  commit your files with comment  
+12. git push origin nameofbranch     to upload your committed files
+
+
+STARTING TO CODE A NEW FEATURE
+git pull origin main - do this constantly so you avoid merge conflicts at all cost. 
+Always do this before starting new code, make sure your copy of the repo is up to date! Before you start coding -
+1. Make sure you are in the main branch (check with):  git branch 
+2. git checkout main   (if not in main branch and to switch to main)
+3. git pull origin main 
+4. Now your main branch is up to date with main so you can now -
+   Create a new branch that you will be coding in
+   git checkout -b nameofyourbranch
+
+
+WHAT BRANCH AM I WORKING IN?
+You can check what branch you are in at any time
+git branch
+also it shows on bottom left of vs code
+
+
+OTHER NOTES
+Always push your new code branch up to the remote. Do not do any local merges. 
+Then others can review that code and decide if they want to merge them with the master/main branch on the remote repository.
+
+git reset         :will unstage all staged files 
+
+Sync fork button will update your main branch with the main branch of the admin of repo.
+
+Once you push your branch, on github you can open a new pull request. This sends request to admin where they can click to merge.
+
+"# practicecollab" 
