@@ -3,7 +3,7 @@ SETUP YOUR INITIAL REPOSITORY - Steps
 1. Create an empty folder with exactly the same name as repo 'codetube'
 2. cd into that folder
 3. git init 
-4. git remote add origin https://github.com/joshuabecker91/codetube.git
+4. git remote add origin (pasteRepositoryWebUrlHere)
 5. git remote -v
 6. git branch -M main
 7. git pull origin main  
