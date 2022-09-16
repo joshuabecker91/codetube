@@ -9,10 +9,10 @@ SETUP YOUR INITIAL REPOSITORY - Steps
 7. git pull origin main  
    Grabs all the updated files from the main repo
 8. When you want to start coding a new feature start new branch first
-9. git status to see what has been changed in your branch
-10. git add .  stage your files
+9. you can now start coding in your new branch. git status to see what has been changed in your branch at any time.
+10. when you want to upload your branch.  git add .  stage your files
 11. git commit -m "uploading updates"  commit your files with comment  
-12. git push origin nameofbranch     to upload your committed files
+12. git push origin (nameofbranchyouhavebeencodingin)     to upload your committed files
 
 
 STARTING TO CODE A NEW FEATURE
