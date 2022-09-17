@@ -2,12 +2,23 @@ import re
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE
-EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
+
+URL_REGEX = re.compile(
+        r'^(?:http|ftp)s?://' # http:// or https://
+        r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?.)+(?:[A-Z]{2,6}.?|[A-Z0-9-]{2,}.?)|' #domain...
+        r'localhost|' #localhost...
+        r'\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})' # ...or ip
+        r'(?::\d+)?' # optional port
+        r'(?:/?|[/?]\S+)$', re.IGNORECASE)
 
 
+# VALIDATIONS ---------------------------------------------------------------------------------------
+
+# Validation for User Registration - Complete
 class UserManager(models.Manager):
-    def validate(self, form):
-        errors = {}                                     #Using errors instead of flash
+    def reg_validate(self, form):
+        errors = {} #Using errors instead of flash
+        EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
         emailCheck = self.filter(email=form['email'])
         if emailCheck:
             errors['email'] = "Email is already taken!"
@@ -23,49 +34,64 @@ class UserManager(models.Manager):
             errors['password'] = "Passwords do not match!"
         return errors
 
+# Validation for Creat Video - Complete
+    def video_validate(self, form):
+        errors={}
+        if len(form['title']) < 8:
+            errors['title'] = "Title must be at least 8 characters long."
+        if len(form['video']) < 10: 
+            errors['video'] = "Video URL must be at least 10 characters long."
+        if not URL_REGEX.match(form['video']):
+            errors['video'] = "Please use a valid URL!"
+        if len(form['thumbnail']) < 10: 
+            errors['thumbnail'] = "Thumbnail URL must be at least 10 characters long."
+        if not URL_REGEX.match(form['thumbnail']):
+            errors['thumbnail'] = "Please use a valid URL!"
+        if len(form['description']) < 10:
+            errors['description'] = "Description must be at least 10 characters long."
+        return errors
 
+# If we wanted to be able to update users -
+    # def update_validator(self, form):
+    #     errors={}
+    #     if len(form['first_name']) <1:
+    #         errors['first_name'] = "Field required"
+    #     if len(form['last_name']) <1:
+    #         errors['last_name'] = "Field required"
+    #     EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
+    #     if not EMAIL_REGEX.match(form['email']):
+    #         errors['email'] = "Invalid Email Address"
+    #     return errors
+
+
+# MODELS---------------------------------------------------------------------------------------------
+
+# User Table / Model - Complete
 class User(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
-    email = models.EmailField()
+    email = models.EmailField() # models.CharField(max_length=255) could also do it this way
     password = models.CharField(max_length=255)
-    createdAt = models.DateTimeField(auto_now_add=True)
-    updatedAt = models.DateTimeField(auto_now=True)
-
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
 
-
+# Video Table / Model - Complete
 class Video(models.Model):
     title = models.CharField(max_length=255)
     video = models.CharField(max_length=255)
     thumbnail = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
-    createdAt = models.DateTimeField(auto_now_add=True)
-    updatedAt = models.DateTimeField(auto_now=True)
-    # need to confirm these two fields are correct
-    user = models.ForeignKey(User, related_name='userVid', on_delete=CASCADE) #one to many
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User, related_name='userVids', on_delete=CASCADE) #one to many.
     views = models.IntegerField(default=0)
-    
-    # if we decide to add likes here are notes:
-    # likes = models.ForeignKey(Liked, related_name='liked', on_delete=models.PROTECT)
-    # likes = models.ManyToManyField(Liked, blank=True)
+    objects = UserManager()
 
-
-# class Liked(models.Model):
-#     # need to confirm these two fields. also IDs are auto generated?
-#     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-#     video_id = models.ForeignKey(Video, on_delete=models.CASCADE)
-
-
-
-
-
-# Code with Mosh did likes this way -
-
-# from django.contrib.contenttypes.fields import GenericForeignKey
-
-# class LikedItem(models.Model):
-#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-#     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-#     object_id = models.PositiveIntegerField()
-#     content_object = GenericForeignKey()
+# Liked Table / Model - Complete
+class Liked(models.Model):
+    like_id = models.PositiveIntegerField()
+    user_id = models.ForeignKey(User,related_name='liked',on_delete=models.CASCADE)
+    video_id = models.ForeignKey(Video,related_name='liked',on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
