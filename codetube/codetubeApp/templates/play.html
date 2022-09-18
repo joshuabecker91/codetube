@@ -78,7 +78,7 @@
                             {{ video.user.first_name }} {{ video.user.last_name }} <br>
                             {{ video.liked }} views
                         </p>
-                        {% if vide.user_id == session.user_id %}
+                        {% if video.user_id == session.user_id %}
                             <a href="/edit_video/">Edit</a>
                             <a href="/delete/">Delete</a>
                         {% endif %}

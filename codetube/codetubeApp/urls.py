@@ -14,18 +14,20 @@ urlpatterns = [
     path('login/', views.login),
     path('logout/', views.logout),
     path('register/', views.register),
-    path('testlogin_reg/', views.testlogin_reg),
-    path('testdashboard/', views.testdashboard),
+    # path('testlogin_reg/', views.testlogin_reg),
+    # path('testdashboard/', views.testdashboard),
 ]
 
-
-
 # ones we will likely add
-    # path('myaccount/<int:id>', views.account_page),
+    # path('create/<int:id>', views.create),
     # path('update/<int:id>', views.update),
-    # path('user/<int:id>', views.user_page),
+    # path('delete/<int:id>', views.delete),
     # path('like', views.like),
-    # path('delete/<int:id>', views.delete)
+
+
+# other
+    # path('myaccount/<int:id>', views.account_page),
+    # path('user/<int:id>', views.user_page),
 
 # Reference, full from project
 # urlpatterns = [
