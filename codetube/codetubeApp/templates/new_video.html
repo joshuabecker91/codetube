@@ -69,7 +69,8 @@
 			<div class="row">
 				<div class="col">
 					<h4>Create A New Video</h4>
-					<form class="form" action="/new_video/" method="POST">
+					<form class="form" action="/create_video/" method="POST">
+                        {% csrf_token %}
 						<input type="hidden" name="user" value="${user.id}"/>
 
                         <label class="form-label" for="title">Title</label>
@@ -87,6 +88,16 @@
 						<input class="btn" type="submit" value="Submit"/>
 					</form>
 				</div>
+
+                <div class="messages">
+                    <!-- messages change from the way we do it in flask -->
+                        {% if messages %}
+                            {% for message in messages %}
+                                <h5>{{message}}</h5>
+                            {% endfor %}
+                        {% endif %}
+                </div>
+
 			</div>
 		</div>
 

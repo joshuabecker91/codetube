@@ -69,8 +69,8 @@
         <div class="container">	
             <div class="row">
                 <div class="col d-inline-flex flex-wrap">
-                    {% for video in videos %}
-                        {% if vide.user_id == session.user_id %}
+                    {% for video in all_videos %}
+                        {% if video.user_id == session.user_id %}
                             <div class="card m-2">
                                 <div>
                                     <img src="{{ video.thumbnail }}" alt=""/>  

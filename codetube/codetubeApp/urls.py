@@ -4,43 +4,31 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('', views.index),
-    path('search/', views.search),
+    # General Routes:
+    path('', views.index), # no login needed
+    path('search/', views.search), # no login needed # need to enter path param string
+    # User Routes:
     path('login_reg/', views.login_reg),
-    path('dashboard/', views.dashboard),
-    path('new_video/', views.new_video),
-    path('edit_video/', views.edit_video),
-    path('play/', views.play),
     path('login/', views.login),
-    path('logout/', views.logout),
     path('register/', views.register),
-    # Video and Like Routes:
-    # path('create/<int:id>', views.create),
-    # path('update/<int:id>', views.update),
-    # path('delete/<int:id>', views.delete),
-    # path('like', views.like),
+    path('dashboard/', views.dashboard),
+    path('logout/', views.logout),
+    # Video Routes:
+    path('play/<int:id>', views.play_video), # no login needed
+    path('new_video/', views.new_video),
+    path('create_video/', views.create_video),
+    path('edit_video/<int:id>', views.edit_video),
+    path('update_video/<int:id>', views.update_video),
+    path('delete_video/<int:id>', views.delete_video),
+    # Like Routes:
+    # path('like/<int:id>', views.like_video),
+    # path('unlike/<int:id>', views.unlike),
+
     # Test Routes:
     # path('testlogin_reg/', views.testlogin_reg),
     # path('testdashboard/', views.testdashboard),
 ]
 
-
-
-# other
+# others for reference
     # path('myaccount/<int:id>', views.account_page),
     # path('user/<int:id>', views.user_page),
-
-# Reference, full from project
-# urlpatterns = [
-#     path('', views.index),
-#     path('register', views.register),
-#     path('login', views.login),
-#     path('logout', views.logout),
-#     path('success', views.success),
-#     path('add_quote', views.add_quote),
-#     path('myaccount/<int:id>', views.account_page),
-#     path('update/<int:id>', views.update),
-#     path('user/<int:id>', views.user_page),
-#     path('like', views.like),
-#     path('delete/<int:id>', views.delete)
-# ]
