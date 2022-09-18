@@ -1,16 +1,71 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
-    <title>CodeTube - Search Results</title>
-</head>
-<body>
-    <h1>CodeTube</h1>
-    <h2>Search Results</h2>
-    <script src="{% static 'js/scripts.js' %}"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+        {#can use for icons#}
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+        <title>CodeTube - Search Results</title>
+    </head>
+    <body>
+
+        <div class="navbar">
+            <div class="nav-item d-flex">
+                {#add logic to hide sidebar when clicked#}
+                <i id="menu" class="material-icons">menu</i>
+                <h1>
+                    <i id="smart_display" class="material-icons">smart_display</i>
+                    CodeTube
+                </h1>
+            </div>
+            <div class="nav-item">
+                {#if you click on search, search url is staying?#}
+                <form class="d-flex" action="search/">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <button type="submit"><i class="material-icons">search</i></button>
+                    <i id="mic" class="material-icons">mic</i>
+                </form>
+            </div>
+            <div class="nav-item d-flex">
+                <i class="material-icons">video_call</i>
+                <i class="material-icons">notifications</i>
+                {% if user.id != null %}
+                    <i id="account_circle" class="material-icons">account_circle</i>
+                {% else %}
+                    <a class="nav-link" href="login_reg/">Sign In</a>
+                {% endif %}
+            </div>
+        </div>
+
+        {#make height 100% or 100vh#}
+        <div class="col-2 side-bar">
+            {#add css for list style none#}
+            <ul class="list-unstyled">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard/">Your Videos</a>
+                </li>
+                {#url to index with filter to show only liked videos#}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Liked Videos</a>
+                </li>
+                {#url to index with filter to show videos with 10+ likes#}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Popular Videos</a>
+                </li>
+            </ul>
+        </div>
+        
+        <script src="{% static 'js/scripts.js' %}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    </body>
 </html>
