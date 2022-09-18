@@ -92,6 +92,8 @@ def dashboard(request):
 # def index(request):
 #     return render(request,'index.html')
 
+# quote > video
+
 # def add_quote(request):
 #     if request.method=='POST':
 #         errors = Quote.objects.quote_validate(request.POST)
