@@ -5,3 +5,4 @@
 pycache
 db.sqlite3
 media
+venv

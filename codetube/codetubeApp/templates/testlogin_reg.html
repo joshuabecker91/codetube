@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Login and Registration</title>
+</head>
+<body>
+    <div class="messages">
+        <!-- messages change from the way we do it in flask -->
+            {% if messages %}
+                {% for message in messages %}
+                    <h5>{{message}}</h5>
+                {% endfor %}
+            {% endif %}
+    </div>
+    <main>
+        <div class="row">
+            <form action="/login/" method="post">
+                {% csrf_token %}
+                <section>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email">
+                </section>
+                <section>
+                    <label for="password">Password:</label>
+                    <input type="password" name="password">
+                </section>
+                <button>Login</button>
+            </form>
+            <h2>OR</h2>
+            <form action="/register/" method="post">
+                {% csrf_token %}
+                <section>
+                    <label for="first_name">First Name: </label>
+                    <input type="text" name="first_name">
+                </section>
+                <section>
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name">
+                </section>
+                <section>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email">
+                </section>
+                <section>
+                    <label for="password">Password:</label>
+                    <input type="password" name="password">
+                </section>
+                <section>
+                    <label for="confirm_password">Confirm Password: </label>
+                    <input type="password" name="confirm_password">
+                </section>
+                <button>Register</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
