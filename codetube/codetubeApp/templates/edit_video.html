@@ -70,7 +70,8 @@
 				<div class="col">
 					<h4>Edit Video</h4>
                     {#shouldn't the url for edit include the id?#}
-					<form class="form" action="/edit_video/" method="POST">
+					<form class="form" action="/update_video/{{video.id}}" method="POST">
+                        {% csrf_token %}
 						<input type="hidden" name="user" value="${user.id}"/>
 
                         <label class="form-label" for="title">Title</label>
@@ -88,6 +89,16 @@
 						<input class="btn" type="submit" value="Submit"/>
 					</form>
 				</div>
+
+                <div class="messages">
+                    <!-- messages change from the way we do it in flask -->
+                        {% if messages %}
+                            {% for message in messages %}
+                                <h5>{{message}}</h5>
+                            {% endfor %}
+                        {% endif %}
+                </div>
+
 			</div>
 		</div>
 

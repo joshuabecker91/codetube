@@ -76,12 +76,19 @@
         <div class="container">	
             <div class="row">
                 <div class="col d-inline-flex flex-wrap">
-                    {% for video in videos %}
+                    {% for video in all_videos %}
                         <div class="card m-2">
-                            <div class="card-body">
-                                <img src="{{ video.thumbnail }}" alt=""/>                                    <h6 class="card-title">{{ video.title }}</h6>
+                            <div style="width: 350px; height: 400px;" class="card-body">
+                                <img style="width: 300px;" src="{{ video.thumbnail }}" alt=""/>
+                                <p>video id: {{ video.id }}</p>
+                                <p>{{ video.video }}</p>
+                                <a href="/play/{{video.id}}" class="card-title">{{ video.title }}</a>
+                                <!-- https://youtu.be/nXqP9Xn5hUc -->
+                                <!-- <iframe width="1013" height="570" src="https://www.youtube.com/embed/nXqP9Xn5hUc" title="How to build a real web application (full-stack development)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                                <!-- <iframe width="1013" height="570" src="{{ video.video }}" title="How to build a real web application (full-stack development)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                                 <p>
                                     {{ video.user.first_name }} {{ video.user.last_name }} <br>
+                                    <!-- {{ video.description }} -->
                                     {{ video.liked }} views
                                 </p>
                             </div>
