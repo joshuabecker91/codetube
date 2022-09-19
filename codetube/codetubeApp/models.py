@@ -51,7 +51,7 @@ class UserManager(models.Manager):
             errors['description'] = "Description must be at least 10 characters long."
         return errors
 
-# If we wanted to be able to update users -
+# If we wanted to be able to update users, reference ----------------------------------
     # def update_validator(self, form):
     #     errors={}
     #     if len(form['first_name']) <1:
@@ -90,8 +90,7 @@ class Video(models.Model):
 
 # Liked Table / Model - Complete
 class Liked(models.Model):
-    like_id = models.PositiveIntegerField()
-    user_id = models.ForeignKey(User,related_name='liked',on_delete=models.CASCADE)
-    video_id = models.ForeignKey(Video,related_name='liked',on_delete=models.CASCADE)
+    user = models.ForeignKey(User,related_name='liked',on_delete=models.CASCADE)
+    video = models.ForeignKey(Video,related_name='liked',on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

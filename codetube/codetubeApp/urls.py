@@ -22,13 +22,11 @@ urlpatterns = [
     path('delete_video/<int:id>', views.delete_video),
     # Like Routes:
     path('like_video/<int:id>', views.like_video),
-    # path('unlike_video/<int:id>', views.unlike_video),
-
     # Test Routes:
     # path('testlogin_reg/', views.testlogin_reg),
     # path('testdashboard/', views.testdashboard),
 ]
 
-# others for reference
+# If you want to be able to update user, reference ------------------------
     # path('myaccount/<int:id>', views.account_page),
     # path('user/<int:id>', views.user_page),
