@@ -91,23 +91,16 @@
                         <h6 class="card-title">{{ video.title }}</h6>
                         <p>
                             {{ video.user.first_name }} {{ video.user.last_name }} <br>
-                            Likes: {{ liked }}
+                            Likes: {{ likes }}
                             Views: {{ video.views }}
                         </p>
                         <form action = "/like_video/{{video.id}}" method = "post">
                             {% csrf_token %}
+                            <input type="hidden" name='video_id' value='{{video.id}}'>
                             <button type="submit">Like</button>
-                            <input type="hidden" name="user" value="${user.id}"/>
-                            <!-- <input type="hidden" name="like" value="like"/> -->
                         <form>
-                        <!-- <form action='/like' method='POST' style='display:inline-block;'>
-                            {% csrf_token %}
-                            <input type="hidden" name='quote' value='{{quote.id}}'>
-                            <input type="hidden" name='like' value='one'>
-                            <input type=submit value="Like!">
-                        </form> -->
-                        <!-- {% if video.user.id == session.user_id %} -->
-                        <!-- {% endif %} -->
+                        {% if video.user.id == session.user_id %}
+                        {% endif %}
                             <a href="/edit_video/{{video.id}}">Edit</a>
                             <a href="/delete_video/{{video.id}}">Delete</a>
                     </div>

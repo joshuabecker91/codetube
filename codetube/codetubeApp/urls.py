@@ -21,7 +21,7 @@ urlpatterns = [
     path('update_video/<int:id>', views.update_video),
     path('delete_video/<int:id>', views.delete_video),
     # Like Routes:
-    # path('like_video/<int:id>', views.like_video),
+    path('like_video/<int:id>', views.like_video),
     # path('unlike_video/<int:id>', views.unlike_video),
 
     # Test Routes:

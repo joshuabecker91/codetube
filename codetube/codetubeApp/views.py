@@ -99,8 +99,14 @@ def play_video(request, id):
     video = Video.objects.get(id=id)
     video.views = video.views + 1
     video.save()
+    likes = 0
+    all_likes = Liked.objects.all()
+    for like in all_likes:
+        if like.video_id == Video.objects.get(id=id):
+            likes = likes + 1
     context = {
-        'video' : Video.objects.get(id=id)
+        'video' : video,
+        'likes' : likes
     }
     return render(request, 'play.html', context)
 
@@ -173,18 +179,23 @@ def delete_video(request, id):
 # Likes -------------------------------------------------------------------------------------
 
 # Like video
-# def like_video(request, id):
-#     if request.method=='POST':
-#         if 'user_id' not in request.session: 
-#             return redirect('/play/<int:id>')
+def like_video(request, id):
+    if request.method=='POST':
+        if 'user_id' not in request.session: 
+            return redirect('/play/<int:id>')
         # will like id auto generate on the like table? do we need need to do have hidden input on like button type=submit name =like?
         # if like already exists in table redirect
-    #     Liked.objects.create(video_id_id=id, user_id_id=User.objects.get(id=request.session['user_id']))
-    #     context = {
-    #         'all_likes': Liked.objects.all.count()
-    #     }
-    #     return redirect('/play/<int:id>')
-    # return redirect('/play/<int:id>')
+        video = Video.objects.get(id=id)
+        user = User.objects.get(id=request.session['user_id'])
+        all_likes = Liked.objects.all()
+        for like in all_likes:
+            if video and user:
+                this_like = Liked.objects.get(id=like.id)
+                this_like.delete()
+                return redirect(f'/play/{id}')
+        Liked.objects.create(like_id = 1, video_id=video, user_id=user)
+        return redirect(f'/play/{id}')
+    return redirect(f'/play/{id}')
 
 
 
