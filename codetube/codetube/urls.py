@@ -18,6 +18,6 @@ from django.urls import path, include
 from codetubeApp import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('', include('codetubeApp.urls')),
 ]
