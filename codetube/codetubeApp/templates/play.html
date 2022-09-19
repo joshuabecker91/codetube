@@ -90,7 +90,7 @@
                             <p>{{ video.description }}</p>
                             <p>{{ video.user.first_name }} {{ video.user.last_name }}</p>
                             <p>{{ video.liked }} views</p>
-                            {% if session.user_id == video.user_id %}
+                            {% if request.session.user_id == video.user.id %}
                                 <a href="/edit_video/{{video.id}}">Edit</a>
                                 <a href="/delete_video/{{video.id}}">Delete</a>
                             {% endif %}

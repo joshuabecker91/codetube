@@ -71,23 +71,23 @@
             {#Video Section#}
             <div class="videos__container">
                 {% for video in all_videos %}
-                    {% if video.user_id == session.user_id %}
+                    {% if video.user.id == request.session.user_id %}
                         <div class="video">
                             <div class="video__thumbnail">
-                                <img src="{{ video.thumbnail }}" alt="" />
+                                <a href="/play/{{video.id}}"><img src="{{ video.thumbnail }}" alt="" /></a>
                             </div>
                             <div class="video__details">
                                 {#removed author div, will not have a profile logo for user#}
                                 {#temporarily have p tag with id for testing#}
                                 <p>id {{ video.id }}</p>
                                 <div class="title">
-                                    <h3>{{ video.title }}</h3>
-                                    <h6>{{ video.user.first_name }} {{ video.user.last_name }}</h6>
+                                    <a href="/play/{{video.id}}"><h3>{{ video.title }}</h3></a>
+                                    <h3>{{ video.user.first_name }} {{ video.user.last_name }}</h3>
                                     <span>{{ video.views }} views</span>
                                 </div>
                                 <div>
                                     <a href="/edit_video/{{video.id}}">Edit</a>
-                                    <a href="/delete/{{video.id}}">Delete</a>
+                                    <a href="/delete_video/{{video.id}}">Delete</a>
                                 </div>
                             </div>
                         </div>
