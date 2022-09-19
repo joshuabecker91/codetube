@@ -75,34 +75,43 @@
                 <hr />
             </div>
             {#Sidebar Ends#}
-
-            {#update class names if needed, these are bootstrap class names, forms are not part of the example code#}
-            <div class="container">	
-                <div class="row">
-                    <div class="col">
-                        <h4 class="card-title">{{ video.title }}</h4>
-                        <video width="640" height="350" controls>
-                            <source src="{{ video.video }}" type="video/mp4" onmouseover="playVideo(this)"/>
-                        </video>
-
-                        <div>
-                            <p>video id: {{ video.id }}</p>
-                            <p>{{ video.description }}</p>
-                            <p>{{ video.user.first_name }} {{ video.user.last_name }}</p>
-                            <p>{{ video.liked }} views</p>
-                            {% if request.session.user_id == video.user.id %}
-                                <a href="/edit_video/{{video.id}}">Edit</a>
-                                <a href="/delete_video/{{video.id}}">Delete</a>
-                            {% endif %}
-                        </div>
+        <div class="container">	
+            <div class="row">
+                <div class="col">
+                    <figure>
+                        <video src="{{ video.video }}" alt="" onmouseover="playVideo(this)"></video>
+                    </figure>
+                    
+                    <div class="row">
+                        <img style="width: 300px;" src="{{ video.thumbnail }}" alt=""/>
+                        <p>video id: {{ video.id }}</p>
+                        <p>video url: {{ video.video }}</p>
+                        <p>{{ video.description }}</p>
+                        <h6 class="card-title">{{ video.title }}</h6>
+                        <p>
+                            {{ video.user.first_name }} {{ video.user.last_name }} <br>
+                            Likes: {{ liked }}
+                            Views: {{ video.views }}
+                        </p>
+                        <form action = "/like_video/{{video.id}}" method = "post">
+                            {% csrf_token %}
+                            <button type="submit">Like</button>
+                            <input type="hidden" name="user" value="${user.id}"/>
+                            <!-- <input type="hidden" name="like" value="like"/> -->
+                        <form>
+                        <!-- <form action='/like' method='POST' style='display:inline-block;'>
+                            {% csrf_token %}
+                            <input type="hidden" name='quote' value='{{quote.id}}'>
+                            <input type="hidden" name='like' value='one'>
+                            <input type=submit value="Like!">
+                        </form> -->
+                        <!-- {% if video.user.id == session.user_id %} -->
+                        <!-- {% endif %} -->
+                            <a href="/edit_video/{{video.id}}">Edit</a>
+                            <a href="/delete_video/{{video.id}}">Delete</a>
                     </div>
                 </div>
             </div>
-
-
-
-
-
         </div>
         {#Main Body Ends#}
 
