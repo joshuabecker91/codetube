@@ -85,15 +85,15 @@
                 {% for video in all_videos %}
                     <div class="video">
                         <div class="video__thumbnail">
-                            <img src="{{ video.thumbnail }}" alt="" />
+                            <a href="/play/{{video.id}}"><img src="{{ video.thumbnail }}" alt="" /></a>
                         </div>
                         <div class="video__details">
                             {#removed author div, will not have a profile logo for user#}
                             {#temporarily have p tag with id for testing#}
                             <p>id {{ video.id }}</p>
                             <div class="title">
-                                <h3>{{ video.title }}</h3>
-                                <h6>{{ video.user.first_name }} {{ video.user.last_name }}</h6>
+                                <a href="/play/{{video.id}}"><h3>{{ video.title }}</h3></a>
+                                <h3>{{ video.user.first_name }} {{ video.user.last_name }}</h3>
                                 <span>{{ video.views }} views</span>
                             </div>
                         </div>
