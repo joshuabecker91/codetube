@@ -14,10 +14,11 @@ def index(request):
 
 # need to add search term here as a path param then run filter query on sql light
 def search(request): 
+    # how to match database
     return render(request, 'search.html')
 
 
-# Testing Routes ----------------------------------------------------------------------------
+# Testing Routes During Development ---------------------------------------------------------
 
 # def login_reg(request):
 #     return render(request, 'login_reg.html')
@@ -93,12 +94,14 @@ def dashboard(request):
 
 # Videos ------------------------------------------------------------------------------------
 
-# Play video - NEED TO ADD INCRIMENT ONE VIEW, what is sql lite equivelent to patch request to update one field
+# Play video - every view incriments views by one
 def play_video(request, id):
+    video = Video.objects.get(id=id)
+    video.views = video.views + 1
+    video.save()
     context = {
         'video' : Video.objects.get(id=id)
     }
-    # Video.objects.views 
     return render(request, 'play.html', context)
 
 # New video form page
@@ -169,17 +172,32 @@ def delete_video(request, id):
 
 # Likes -------------------------------------------------------------------------------------
 
-# def like_video(request):
+# Like video
+# def like_video(request, id):
 #     if request.method=='POST':
-#         Liked.objects.create(liked=request.POST['liked'], user=User.objects.get(id=request.session['user_id']), video=request.POST['video'])
-#         context = {
-#             'all_likes': Liked.objects.all.count()
-#         }
-#         return redirect('/success')
+#         if 'user_id' not in request.session: 
+#             return redirect('/play/<int:id>')
+        # will like id auto generate on the like table? do we need need to do have hidden input on like button type=submit name =like?
+        # if like already exists in table redirect
+    #     Liked.objects.create(video_id_id=id, user_id_id=User.objects.get(id=request.session['user_id']))
+    #     context = {
+    #         'all_likes': Liked.objects.all.count()
+    #     }
+    #     return redirect('/play/<int:id>')
+    # return redirect('/play/<int:id>')
 
-#  def unlike_video
 
 
+
+
+
+# Unlike video
+# def unlike_video(request, id):
+#     if request.method=='POST':
+#         # remove from table where exists
+#         Liked.objects.delete(video_id=request.POST['like'], user_id=User.objects.get(id=request.session['user_id']))
+
+# liked count where video id = id path param
 
 
 
