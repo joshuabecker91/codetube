@@ -79,7 +79,7 @@ def logout(request):
     request.session.clear()
     return redirect('/')
 
-# Dashboard - Check if Logged in
+# Dashboard - Check if Logged in, can add get like count
 def dashboard(request):
     if 'user_id' not in request.session:
         return redirect('/')
@@ -94,7 +94,7 @@ def dashboard(request):
 
 # Videos ------------------------------------------------------------------------------------
 
-# Play video - every view incriments views by one
+# Play video - every view incriments views by one. get like count. - complete
 def play_video(request, id):
     video = Video.objects.get(id=id)
     video.views = video.views + 1
@@ -102,7 +102,7 @@ def play_video(request, id):
     likes = 0
     all_likes = Liked.objects.all()
     for like in all_likes:
-        if like.video_id == Video.objects.get(id=id):
+        if like.video == Video.objects.get(id=id):
             likes = likes + 1
     context = {
         'video' : video,
@@ -110,13 +110,13 @@ def play_video(request, id):
     }
     return render(request, 'play.html', context)
 
-# New video form page
+# New video form page - Completed
 def new_video(request):
     if 'user_id' not in request.session:
         return redirect('/')
     return render(request, 'new_video.html')
 
-# Create a new video
+# Create a new video - Completed
 def create_video(request):
     if 'user_id' not in request.session:
         return redirect('/')
@@ -130,7 +130,7 @@ def create_video(request):
         return redirect('/dashboard')
     return redirect('/new_video')
 
-# Edit video form page
+# Edit video form page - Completed
 def edit_video(request, id):
     if 'user_id' not in request.session: 
         return redirect('/')
@@ -142,7 +142,7 @@ def edit_video(request, id):
     }
     return render(request, 'edit_video.html', context)
 
-# Update video
+# Update video - Completed
 def update_video(request, id):
     if 'user_id' not in request.session: 
         return redirect('/')
@@ -178,11 +178,11 @@ def delete_video(request, id):
 
 # Likes -------------------------------------------------------------------------------------
 
-# Like video
+# Like video toggle
 def like_video(request, id):
     if request.method=='POST':
         if 'user_id' not in request.session: 
-            return redirect('/play/<int:id>')
+            return redirect(f'/play/{id}')
         # will like id auto generate on the like table? do we need need to do have hidden input on like button type=submit name =like?
         # if like already exists in table redirect
         video = Video.objects.get(id=id)
@@ -190,34 +190,16 @@ def like_video(request, id):
         all_likes = Liked.objects.all()
         for like in all_likes:
             if video and user:
+                print(like)
                 this_like = Liked.objects.get(id=like.id)
                 this_like.delete()
                 return redirect(f'/play/{id}')
-        Liked.objects.create(like_id = 1, video_id=video, user_id=user)
+        Liked.objects.create(video=video, user=user)
         return redirect(f'/play/{id}')
     return redirect(f'/play/{id}')
 
 
-
-
-
-
-# Unlike video
-# def unlike_video(request, id):
-#     if request.method=='POST':
-#         # remove from table where exists
-#         Liked.objects.delete(video_id=request.POST['like'], user_id=User.objects.get(id=request.session['user_id']))
-
-# liked count where video id = id path param
-
-
-
-
-
-
-
-
-# Other Notes -------------------------------------------------------------------------------
+# If you want to be able to update user, reference ------------------------------------------
 
 # def account_page(request,id):
 #     context = {
