@@ -22,6 +22,7 @@ urlpatterns = [
     path('delete_video/<int:id>', views.delete_video),
     # Like Routes:
     path('like_video/<int:id>', views.like_video),
+    path('user_liked/', views.user_liked),
     # Test Routes:
     # path('testlogin_reg/', views.testlogin_reg),
     # path('testdashboard/', views.testdashboard),

@@ -216,16 +216,35 @@ def like_video(request, id):
         for like in all_likes:
             if like.video_id == video.id and like.user_id == user.id:
                 video.likes = video.likes - 1
+                video.views = video.views -1
                 video.save()
                 this_like = Liked.objects.get(id=like.id)
                 this_like.delete()
                 return redirect(f'/play/{id}')
         video.likes = video.likes + 1
+        video.views = video.views -1
         video.save()
         Liked.objects.create(video=video, user=user)
         return redirect(f'/play/{id}')
     return redirect(f'/play/{id}')
 
+# User liked videos
+def user_liked(request):
+    if 'user_id' not in request.session:
+        return redirect('/')
+    user = User.objects.get(id=request.session['user_id'])
+    all_likes = Liked.objects.all()
+    liked_videos = []
+    for like in all_likes:
+        if like.user_id == user.id:
+            video = Video.objects.get(id=like.video_id)
+            liked_videos.append(video)
+    context = {
+        'user': user,
+        'all_likes': all_likes,
+        'liked_videos': liked_videos
+    }
+    return render(request, 'user_liked.html', context)
 
 # If you want to be able to update user, reference ------------------------------------------
 
