@@ -25,7 +25,9 @@
         <div class="header">
             <div class="header__left">
                 <i id="menu" class="material-icons">menu</i>
-                <img src="..\static\img\codetubelogo.png" alt="codetube logo"/> 
+                <a href="/">
+                    <img src="..\static\img\codetubelogo.png" alt="codetube logo"/> 
+                </a>
             </div>
 
             <div class="header__search">
@@ -59,22 +61,22 @@
                 <div class="sidebar__categories">
                     <div class="sidebar__category">
                         <i class="material-icons">home</i>
-                        <a href="/">Home</a>
+                        <a class="sidebar__link" href="/">Home</a>
                     </div>
                     <div class="sidebar__category">
                         <i class="material-icons">play_arrow</i>
-                        <a href="/dashboard">Your Videos</a>
+                        <a class="sidebar__link" href="/dashboard">Your Videos</a>
                     </div>
                     <hr />
                     {#url to index with filter to show only liked videos#}
                     <div class="sidebar__category">
                         <i class="material-icons">thumb_up</i>
-                        <a href="/user_liked">Liked Videos</a>
+                        <a class="sidebar__link" href="/user_liked">Liked Videos</a>
                     </div>
                     {#url to index with filter to show videos with 10+ likes#}
                     <div class="sidebar__category">
                         <i class="material-icons">local_fire_department</i>
-                        <a href="#">Popular Videos</a>
+                        <a class="sidebar__link" href="/popular_videos">Popular Videos</a>
                     </div>
                 </div>
                 <hr />
