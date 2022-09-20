@@ -97,6 +97,7 @@ def login(request):
                 messages.error(request,"Password is incorrect.")
         else:
             messages.error(request,"Email was not found.")
+            return redirect('/login_reg') # added this line, if email not found was sending them back to home
     return redirect('/')
 
 # Logout
