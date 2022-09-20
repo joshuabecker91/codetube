@@ -8,25 +8,27 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    color:rgb(96, 96, 96)
 }
 
 /* header */
 
 .material-icons {
     color: rgb(96, 96, 96);
+    align-items: center;
 }
 
 .header {
-    display: flex;
     justify-content: space-between;
     align-items: center;
     height: 70px;
     padding: 15px;
-}
+    display: flex; }
 
 .header__left {
     display: flex;
     align-items: center;
+
 }
 
 .header__left img {
@@ -78,6 +80,8 @@ body {
     overflow-y: scroll;
 }
 
+
+
 .sidebar__categories {
     width: 100%;
     display: flex;
@@ -120,6 +124,7 @@ hr {
     padding: 15px 15px;
     border-top: 1px solid #ddd;
     overflow-y: scroll;
+    margin: 20px;
 }
 
 .videos__container {
@@ -127,6 +132,8 @@ hr {
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+    margin: 20px;
+
 }
 
 .video {
@@ -224,3 +231,23 @@ h1 {
         width: 300px;
     }
 }
+
+
+
+/* landing page specific -------------------------------------------------------------------*/
+
+.landing_page_
+
+/* login_reg page specific */
+
+.login_reg_form_border {
+  /* color: red; */
+}
+.login_reg_name_of_class {
+}
+
+/* search page specific */
+
+.search_
+
+/* dashboard page specific */
