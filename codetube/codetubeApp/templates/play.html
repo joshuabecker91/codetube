@@ -26,7 +26,7 @@
             <div class="header__search">
                 <form action="/search">
                     <input type="text" placeholder="Search" />
-                    <button type="submit"><i class="material-icons">search</i></button>
+                    <button><i class="material-icons">search</i></button>
                 </form>
             </div>
 
@@ -75,6 +75,7 @@
                 <hr />
             </div>
             {#Sidebar Ends#}
+<<<<<<< HEAD
 
             {#Video Section Starts#}
             <div class="videos__container">
@@ -105,6 +106,36 @@
                         <a href="/edit_video/{{video.id}}">Edit</a>
                         <a href="/delete_video/{{video.id}}">Delete</a>
                     {% endif %}
+=======
+        <div class="container">	
+            <div class="row">
+                <div class="col">
+                    <!-- <figure>
+                        <video src="{{ video.video }}" alt="" onmouseover="playVideo(this)"></video>
+                    </figure> -->
+                    <iframe width="560" height="315" src={{video.video}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <!-- need to figure out how to do f string with a python splice for url   on the backend before urls are sent to the front end {{video.video}} -->
+                    <div class="row">
+                        <img style="width: 300px;" src="{{ video.thumbnail }}" alt=""/>
+                        <p>video id: {{ video.id }}</p>
+                        <p>video url: {{ video.video }}</p>
+                        <p>{{ video.description }}</p>
+                        <h6 class="card-title">{{ video.title }}</h6>
+                        <p>
+                            {{ video.user.first_name }} {{ video.user.last_name }} <br>
+                            Likes: {{ likes }}
+                            Views: {{ video.views }}
+                        </p>
+                        <form action = "/like_video/{{video.id}}" method = "post">
+                            {% csrf_token %}
+                            <input type="hidden" name='video_id' value='{{video.id}}'>
+                            <button type="submit">Like</button>
+                        <form>
+                        {% if video.user.id == session.user_id %}
+                        {% endif %}
+                            <a href="/edit_video/{{video.id}}">Edit</a>
+                            <a href="/delete_video/{{video.id}}">Delete</a>
+>>>>>>> 2b1b30bf3679f9984d4c3dc53d37b41fedbadd76
                     </div>
                 </div>
             </div>
