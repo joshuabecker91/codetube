@@ -27,18 +27,17 @@
             <div class="header__search">
                 <form action="/search">
                     <input type="text" placeholder="Search" />
-                    <button><i class="material-icons">search</i></button>
+                    <button type="submit"><i class="material-icons">search</i></button>
                 </form>
+                <i class="material-icons">mic</i>
             </div>
 
             <div class="header__icons">
-                <i class="material-icons display-this">search</i>
                 {% if user.id != null %}
-                    <a class="nav-link" href="/new_video"><i class="material-icons">video_call</i></a>
+                    <a data-toggle="tooltip" title="Add Video" class="nav-link" href="/new_video"><i class="material-icons">video_call</i></a>
                 {% else %}
-                    <a class="nav-link" href="/login_reg"><i class="material-icons">video_call</i></a>
+                    <a data-toggle="tooltip" title="Sign In" class="nav-link" href="/login_reg"><i class="material-icons">video_call</i></a>
                 {% endif %}
-                <i class="material-icons">apps</i>
                 <i class="material-icons">notifications</i>
             </div>
         </div>
@@ -73,19 +72,21 @@
             </div>
             {#Sidebar Ends#}
 
-            {#update class names if needed, these are bootstrap class names, forms are not part of the example code#}
+            {#Forms Begin#}
             <div class="container">
                 <div class="row">
                     <div class="messages">
-                        {# messages change from the way we do it in flask#}
                         {% if messages %}
+                            <p><b>Error:</b> <br/>
                             {% for message in messages %}
-                                <h4>{{message}}</h4>
-                            {% endfor %}
+                                {{message}} <br/>
+                            {% endfor %}</p>
                         {% endif %}
                     </div>
+
+                    {#Login Starts#}
                     <div class="col">
-                        <h4>Log In</h4>
+                        <h3>Log In</h3>
                         <form action="/login/" method="post">
                             {% csrf_token %}
                             <section>
@@ -99,9 +100,11 @@
                             <input class="btn" type="submit" value="Log In"/>
                         </form>
                     </div>
+                    {#Login Ends#}
 
+                    {#Registration Starts#}
                     <div class="col">
-                        <h4>Register</h4>
+                        <h3>Register</h3>
                         <form class="form" action="/register/" method="post">
                             {% csrf_token %}
                             <section>
@@ -127,9 +130,10 @@
                             <input class="btn" type="submit" value="Register"/>
                         </form>
                     </div>
+                    {#Registration Ends#}
                 </div>
             </div>
-
+            {#Forms End#}
         </div>
         {#Main Body Ends#}
         

@@ -9,6 +9,7 @@ logger = logging.getLogger('django')
 
 # General Routes ----------------------------------------------------------------------------
 
+# Main Landing Page
 def index(request):
     all_videos = Video.objects.all()
     # randomize all_videos on landing page
@@ -29,9 +30,14 @@ def search(request, term):
     }
     return render(request, 'search.html', context)
 
-
-# popular route will use .order_by("-views")
-# videos = Video.objects.filter(user__username = user).order_by("-datetime")
+# Popular Videos
+def popular_videos(request):
+    all_videos = Video.objects.all()
+    popular_videos = all_videos.order_by("-views")
+    context = {
+        'all_videos': popular_videos,
+    }
+    return render(request, 'index.html', context)
 
 
 # Testing Routes During Development ---------------------------------------------------------
