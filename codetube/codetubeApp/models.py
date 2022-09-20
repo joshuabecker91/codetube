@@ -1,3 +1,4 @@
+from email.policy import default
 import re
 from django.db import models
 from django.contrib.auth.models import User
@@ -86,6 +87,7 @@ class Video(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, related_name='userVids', on_delete=CASCADE) #one to many.
     views = models.IntegerField(default=0)
+    likes = models.IntegerField(default=0)
     objects = UserManager()
 
 # Liked Table / Model - Complete

@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import *      # from codetubeApp.models import *
 from django.contrib import messages
 import bcrypt
+import logging
+logger = logging.getLogger('django')
 
 
 # General Routes ----------------------------------------------------------------------------
@@ -84,6 +86,7 @@ def dashboard(request):
     if 'user_id' not in request.session:
         return redirect('/')
     user = User.objects.get(id=request.session['user_id'])
+
     context = {
         'user' : user,
         'all_videos': Video.objects.all(),
@@ -189,11 +192,14 @@ def like_video(request, id):
         user = User.objects.get(id=request.session['user_id'])
         all_likes = Liked.objects.all()
         for like in all_likes:
-            if video and user:
-                print(like)
+            if like.video_id == video.id and like.user_id == user.id:
+                video.likes = video.likes - 1
+                video.save()
                 this_like = Liked.objects.get(id=like.id)
                 this_like.delete()
                 return redirect(f'/play/{id}')
+        video.likes = video.likes + 1
+        video.save()
         Liked.objects.create(video=video, user=user)
         return redirect(f'/play/{id}')
     return redirect(f'/play/{id}')
