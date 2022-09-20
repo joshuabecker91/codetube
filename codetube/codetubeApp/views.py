@@ -1,14 +1,20 @@
 from django.shortcuts import render, redirect
 from .models import *      # from codetubeApp.models import *
 from django.contrib import messages
+import random
 import bcrypt
 
 
 # General Routes ----------------------------------------------------------------------------
 
 def index(request):
+    all_videos = Video.objects.all()
+    # randomize all_videos on landing page
+    new_videos = list(all_videos)
+    x = len(new_videos)
+    random_videos = random.sample(new_videos, k=x)
     context = {
-        'all_videos' : Video.objects.all()
+        'all_videos' : random_videos
     }
     return render(request, 'index.html', context)
 
@@ -97,9 +103,15 @@ def dashboard(request):
 # Play video - every view incriments views by one. get like count. - complete
 def play_video(request, id):
     video = Video.objects.get(id=id)
+    # replacing youtube browser url / link with an embeddable link allowing us to play with youtube controls.
+    vid_url = video.video
+    vid_updated = str.replace(vid_url, 'https://www.youtube.com/watch?v=', 'https://www.youtube.com/embed/')
+    video.video = vid_updated
+    # video view count
     video.views = video.views + 1
     video.save()
     likes = 0
+    # video likes
     all_likes = Liked.objects.all()
     for like in all_likes:
         if like.video == Video.objects.get(id=id):

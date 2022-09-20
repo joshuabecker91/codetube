@@ -79,10 +79,11 @@
         <div class="container">	
             <div class="row">
                 <div class="col">
-                    <figure>
+                    <!-- <figure>
                         <video src="{{ video.video }}" alt="" onmouseover="playVideo(this)"></video>
-                    </figure>
-                    
+                    </figure> -->
+                    <iframe width="560" height="315" src={{video.video}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <!-- need to figure out how to do f string with a python splice for url   on the backend before urls are sent to the front end {{video.video}} -->
                     <div class="row">
                         <img style="width: 300px;" src="{{ video.thumbnail }}" alt=""/>
                         <p>video id: {{ video.id }}</p>
