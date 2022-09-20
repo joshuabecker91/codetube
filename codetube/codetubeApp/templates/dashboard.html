@@ -12,6 +12,7 @@
         {#can use for icons#}
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
+        <link rel="icon" type="image/x-icon" href="{% static 'img/favicon-32x32.png'%}">
         <title>CodeTube - Dashboard</title>
     </head>
     <body>
@@ -83,7 +84,7 @@
                                 <div class="title">
                                     <a href="/play/{{video.id}}"><h3>{{ video.title }}</h3></a>
                                     <h3>{{ video.user.first_name }} {{ video.user.last_name }}</h3>
-                                    <span>{{ video.views }} views</span>
+                                    <span>{{video.likes}} likes {{ video.views }} views</span>
                                 </div>
                                 <div>
                                     <a href="/edit_video/{{video.id}}">Edit</a>

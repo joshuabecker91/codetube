@@ -12,6 +12,7 @@
         {#can use for icons#}
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
+        <link rel="icon" type="image/x-icon" href="{% static 'img/favicon-32x32.png'%}">
         <title>CodeTube</title>
     </head>
     <body>
@@ -28,9 +29,9 @@
             </div>
 
             <div class="header__search">
-                <form action="/search">
-                    <input type="text" placeholder="Search" />
-                    <button><i class="material-icons">search</i></button>
+                <form action="/results/{{term}}" method="GET">
+                    <input type="text" name="term" placeholder="Search" />
+                    <button type="submit"><i class="material-icons">search</i></button>
                 </form>
             </div>
 
@@ -90,11 +91,11 @@
                         <div class="video__details">
                             {#removed author div, will not have a profile logo for user#}
                             {#temporarily have p tag with id for testing#}
-                            <p>id {{ video.id }}</p>
+                            <!-- <p>id {{ video.id }}</p> -->
                             <div class="title">
                                 <a href="/play/{{video.id}}"><h3>{{ video.title }}</h3></a>
                                 <h3>{{ video.user.first_name }} {{ video.user.last_name }}</h3>
-                                <span>{{ video.views }} views</span>
+                                <span>{{video.likes}} likes {{ video.views }} views</span>
                             </div>
                         </div>
                     </div>

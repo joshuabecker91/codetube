@@ -132,13 +132,13 @@ hr {
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin: 20px;
+    margin: 10px;
 
 }
 
 .video {
     width: 310px;
-
+    margin: 10px;
     margin-bottom: 30px;
 }
 
