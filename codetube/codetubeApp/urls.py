@@ -7,6 +7,7 @@ urlpatterns = [
     # General Routes:
     path('', views.index), # no login needed
     path('results/<str:term>', views.search), # no login needed # need to enter path param string
+    path('popular_videos/', views.popular_videos),
     # User Routes:
     path('login_reg/', views.login_reg),
     path('login/', views.login),
