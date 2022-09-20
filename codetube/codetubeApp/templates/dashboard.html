@@ -83,6 +83,7 @@
                                 <div class="title">
                                     <a href="/play/{{video.id}}"><h3>{{ video.title }}</h3></a>
                                     <h3>{{ video.user.first_name }} {{ video.user.last_name }}</h3>
+                                    <span>{{ likes }} likes</span>
                                     <span>{{ video.views }} views</span>
                                 </div>
                                 <div>
@@ -100,6 +101,7 @@
             {#testing code#}
             <div>
                 <p>Test Code</p>
+                <p>{{request.session.user_id}}</p>
                 <p>{{user.id}}</p>
                 <p>{{user.first_name}}</p>
                 <p>{{user.last_name}}</p>

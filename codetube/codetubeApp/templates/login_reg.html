@@ -76,11 +76,11 @@
             <div class="container">
                 <div class="row">
                     <div class="messages">
-                        {# messages change from the way we do it in flask#}
                         {% if messages %}
+                            <p><b>Error:</b> <br/>
                             {% for message in messages %}
-                                <h4>{{message}}</h4>
-                            {% endfor %}
+                                {{message}} <br/>
+                            {% endfor %}</p>
                         {% endif %}
                     </div>
                     <div class="col">

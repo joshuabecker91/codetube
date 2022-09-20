@@ -94,6 +94,14 @@
                             <div class="title">
                                 <a href="/play/{{video.id}}"><h3>{{ video.title }}</h3></a>
                                 <h3>{{ video.user.first_name }} {{ video.user.last_name }}</h3>
+                                <span>
+                                    {{ likes }}
+                                    <form action = "/like_video/{{video.id}}" method = "post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name='video_id' value='{{video.id}}'>
+                                        <button type="submit"><i class="material-icons">thumb_up</i></button>
+                                    <form>
+                                </span>
                                 <span>{{ video.views }} views</span>
                             </div>
                         </div>
@@ -101,6 +109,19 @@
                 {% endfor %}
             </div>
             {#Video Section Ends#}
+
+
+            {#testing code#}
+            <div>
+                <p>Test Code</p>
+                <p>{{request.session.user_id}}</p>
+                <p>{{user.id}}</p>
+                <p>{{user.first_name}}</p>
+                <p>{{user.last_name}}</p>
+                <p>{{user.email}}</p>
+            </div>
+
+
         </div>
         {#Main Body Ends#}
 
