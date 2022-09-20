@@ -11,7 +11,8 @@
 
         {#can use for icons#}
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-
+        
+        <link rel="icon" type="image/x-icon" href="{% static 'img/favicon-32x32.png'%}">
         <title>CodeTube - Search Results</title>
     </head>
     <body>
@@ -90,7 +91,7 @@
                             <div class="title">
                                 <h3>{{ video.title }}</h3>
                                 <h6>{{ video.user.first_name }} {{ video.user.last_name }}</h6>
-                                <span>{{ video.views }} views</span>
+                                <span>{{video.likes}} likes {{ video.views }} views</span>
                             </div>
                         </div>
                     </div>

@@ -3,6 +3,8 @@ from .models import *      # from codetubeApp.models import *
 from django.contrib import messages
 import random
 import bcrypt
+import logging
+logger = logging.getLogger('django')
 
 
 # General Routes ----------------------------------------------------------------------------
@@ -18,13 +20,24 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
-# need to add search term here as a path param then run filter query on sql light
-def search(request): 
-    # how to match database
-    return render(request, 'search.html')
+# Search Page - filter results based on search term
+def search(request, term):
+    all_videos = Video.objects.all()
+    filtered_videos = all_videos.filter(title__icontains=term)
+    context = {
+        'all_videos': filtered_videos,
+    }
+    return render(request, 'search.html', context)
+
+
+# popular route will use .order_by("-views")
+# videos = Video.objects.filter(user__username = user).order_by("-datetime")
 
 
 # Testing Routes During Development ---------------------------------------------------------
+
+# def search(request):
+#     return render(request, 'search.html')
 
 # def login_reg(request):
 #     return render(request, 'login_reg.html')
@@ -201,11 +214,14 @@ def like_video(request, id):
         user = User.objects.get(id=request.session['user_id'])
         all_likes = Liked.objects.all()
         for like in all_likes:
-            if video and user:
-                print(like)
+            if like.video_id == video.id and like.user_id == user.id:
+                video.likes = video.likes - 1
+                video.save()
                 this_like = Liked.objects.get(id=like.id)
                 this_like.delete()
                 return redirect(f'/play/{id}')
+        video.likes = video.likes + 1
+        video.save()
         Liked.objects.create(video=video, user=user)
         return redirect(f'/play/{id}')
     return redirect(f'/play/{id}')

@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 from django.conf import settings 
 
@@ -6,7 +6,7 @@ from django.conf import settings
 urlpatterns = [
     # General Routes:
     path('', views.index), # no login needed
-    path('search/', views.search), # no login needed # need to enter path param string
+    path('results/<str:term>', views.search), # no login needed # need to enter path param string
     # User Routes:
     path('login_reg/', views.login_reg),
     path('login/', views.login),
