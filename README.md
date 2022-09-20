@@ -1,4 +1,31 @@
+CodeTube | Full Stack Application w/ Login and Registration, full CRUD with validations and access control using Python/Django
+
 Group Project Collaborators: Jake Miller, Jason Harrel, Joshua Becker, Sitora Pekker, Summer King
+
+Technologies used: Python, Django, JS, SQLite, CSS, Bootstrap, HTML, Git, GitHub, AWS EC2
+
+*Group project, in final stages. Updates coming shortly.
+
+CodeTube is a full stack YouTube clone that is dedicated to software development. The videos, website, and all content is targeted to cater an audience that is learning how to code.
+
+- Demonstrate proficiency with using Git / GitHub on a team with multiple contributors.
+- Full login and registration where users can CRUD videos (share, play, edit, delete).
+- Platform allows users to watch and search content without being logged in. However access control is implemented to require login authentication to access pages where appropriate. 
+- Implemented validations for Login and Reg and Video CRUD.
+- Youtube video source link python algorithm to transform the browser video url into an embeddable url.
+- Users can like videos and unlike videos when logged in.
+- View count increments for every time a video is rendered/watched.
+- Videos render randomly when on the home page. Dashboard page renders only the videos that belong to that user.
+- Majority of CSS clone styling done manually to demonstrate proficiency in CSS styling.
+
+https://github.com/joshuabecker91/codetube
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+Proposal:
 
 Team: #1
 Project Title: CodeTube
@@ -6,19 +33,19 @@ Project Stack: Python
 GitHub Repo: https://github.com/joshuabecker91/codetube
 
 Names of group members and their primary role on project:
-    Front-End - Summer King and Sitora Pekker
-    Models - Jason Harrel and Jake Miller
-    Controllers - Josh Becker
+-Front-End - Summer King and Sitora Pekker
+-Models - Jason Harrel and Jake Miller
+-Controllers - Josh Becker
 
 Project Description:
-    CodeTube - A full stack YouTube clone, but dedicated to software development. An app/website where users 
-    can share and watch videos similar to the look and feel of YouTube but called "CodeTube". The platform allows 
-    users to watch content without being logged in. When users are logged in, they can CRUD videos via a video 
-    source link to contribute to the app/website. The videos, website, and all content is targeted to cater an 
-    audience that is learning how to code.
+-CodeTube - A full stack YouTube clone, but dedicated to software development. An app/website where users 
+-can share and watch videos similar to the look and feel of YouTube but called "CodeTube". The platform allows 
+-users to watch content without being logged in. When users are logged in, they can CRUD videos via a video 
+-source link to contribute to the app/website. The videos, website, and all content is targeted to cater an 
+-audience that is learning how to code.
 
- New Programming Concept(s) We are Planning to Learn: 
-    -Django. Hoping to learn and use django, but with time constraints we may have to revert back to flask. 
+New Programming Concept(s) We are Planning to Learn: 
+-Django. Hoping to learn and use django, but with time constraints we may have to revert back to flask. 
 
 Project Technologies:
     -Python
