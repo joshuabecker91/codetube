@@ -33,18 +33,18 @@
                     <input type="text" name="term" placeholder="Search" />
                     <button type="submit"><i class="material-icons">search</i></button>
                 </form>
+                <i class="material-icons">mic</i>
             </div>
 
             <div class="header__icons">
                 {% if user.id != null %}
-                    <a class="nav-link" href="/new_video"><i class="material-icons">video_call</i></a>
+                    <a data-toggle="tooltip" title="Add Video" class="nav-link" href="/new_video"><i class="material-icons">video_call</i></a>
                 {% else %}
-                    <a class="nav-link" href="/login_reg"><i class="material-icons">video_call</i> Add Video</a>
+                    <a data-toggle="tooltip" title="Sign In" class="nav-link" href="/login_reg"><i class="material-icons">video_call</i></a>
                 {% endif %}
-                <i class="material-icons">apps</i>
                 <i class="material-icons">notifications</i>
                 {% if user.id != null %}
-                    <a class="nav-link" href="/logout"><i class="material-icons display-this">account_circle</i> Log Out</a>
+                    <a data-toggle="tooltip" title="Logout" class="nav-link" href="/logout"><i class="material-icons display-this">account_circle</i></a>
                 {% else %}
                     <a class="nav-link" href="/login_reg">Sign In</a>
                 {% endif %}
@@ -95,7 +95,7 @@
                             <div class="title">
                                 <a href="/play/{{video.id}}"><h3>{{ video.title }}</h3></a>
                                 <h3>{{ video.user.first_name }} {{ video.user.last_name }}</h3>
-                                <span>{{video.likes}} likes {{ video.views }} views</span>
+                                <span>{{video.likes}} likes • {{ video.views }} views</span>
                             </div>
                         </div>
                     </div>

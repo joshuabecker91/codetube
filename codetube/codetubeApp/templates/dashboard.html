@@ -27,15 +27,15 @@
             <div class="header__search">
                 <form action="/search">
                     <input type="text" placeholder="Search" />
-                    <button><i class="material-icons">search</i></button>
+                    <button type="submit"><i class="material-icons">search</i></button>
                 </form>
+                <i class="material-icons">mic</i>
             </div>
 
             <div class="header__icons">
-                <a class="nav-link" href="/new_video"><i class="material-icons">video_call</i> Add Video</a>
-                <i class="material-icons">apps</i>
+                <a data-toggle="tooltip" title="Add Video" class="nav-link" href="/new_video"><i class="material-icons">video_call</i></a>
                 <i class="material-icons">notifications</i>
-                <a class="nav-link" href="/logout"><i class="material-icons display-this">account_circle</i> Log Out</a>
+                <a data-toggle="tooltip" title="Logout" class="nav-link" href="/logout"><i class="material-icons display-this">account_circle</i></a>
             </div>
         </div>
         {#Header Ends#}
@@ -84,13 +84,14 @@
                                 <div class="title">
                                     <a href="/play/{{video.id}}"><h3>{{ video.title }}</h3></a>
                                     <h3>{{ video.user.first_name }} {{ video.user.last_name }}</h3>
-                                    <span>{{video.likes}} likes {{ video.views }} views</span>
-                                </div>
-                                <div>
-                                    <a href="/edit_video/{{video.id}}">Edit</a>
-                                    <a href="/delete_video/{{video.id}}">Delete</a>
+                                    <span>{{video.likes}} likes • {{ video.views }} views</span>
+                                    <div>
+                                        <a href="/edit_video/{{video.id}}">Edit</a>
+                                        <a href="/delete_video/{{video.id}}">Delete</a>
+                                    </div>
                                 </div>
                             </div>
+                            
                         </div>
                     {% endif %}
                 {% endfor %}

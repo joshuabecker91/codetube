@@ -27,15 +27,15 @@
             <div class="header__search">
                 <form action="/search">
                     <input type="text" placeholder="Search" />
-                    <button><i class="material-icons">search</i></button>
+                    <button type="submit"><i class="material-icons">search</i></button>
                 </form>
+                <i class="material-icons">mic</i>
             </div>
 
             <div class="header__icons">
-                <a class="nav-link" href="/new_video"><i class="material-icons">video_call</i></a>
-                <i class="material-icons">apps</i>
+                <a data-toggle="tooltip" title="Add Video" class="nav-link" href="/new_video"><i class="material-icons">video_call</i></a>
                 <i class="material-icons">notifications</i>
-                <a class="nav-link" href="/logout"><i class="material-icons display-this">account_circle</i> Log Out</a>
+                <a data-toggle="tooltip" title="Logout" class="nav-link" href="/logout"><i class="material-icons display-this">account_circle</i></a>
             </div>
         </div>
         {#Header Ends#}
@@ -69,20 +69,21 @@
             </div>
             {#Sidebar Ends#}
 
-            {#update class names if needed, these are bootstrap class names, forms are not part of the example code#}
+            {#Form Begins#}
             <div class="container">
                 <div class="row">
                     <div class="messages">
-                        <div class="messages">
-                            {% if messages %}
-                                <p><b>Error:</b> <br/>
-                                {% for message in messages %}
-                                    {{message}} <br/>
-                                {% endfor %}</p>
-                            {% endif %}
-                        </div>
+                        {% if messages %}
+                            <p><b>Error:</b> <br/>
+                            {% for message in messages %}
+                                {{message}} <br/>
+                            {% endfor %}</p>
+                        {% endif %}
+                    </div>
+                    
+                    {#Add Video Begins#}
                     <div class="col">
-                        <h4>Create A New Video</h4>
+                        <h3>Add A New Video</h3>
                         <form class="form" action="/create_video/" method="POST">
                             {% csrf_token %}
                             <input type="hidden" name="user" value="{{user.id}}"/>
@@ -102,8 +103,10 @@
                             <input class="btn" type="submit" value="Submit"/>
                         </form>
                     </div>
+                    {#Add Video Ends#}
                 </div>
             </div>
+            {#Form Ends#}
         </div>
         {#Main Body Ends#}
 
