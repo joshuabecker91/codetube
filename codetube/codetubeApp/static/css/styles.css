@@ -18,11 +18,6 @@
     color: grey;
 }
 
-
-/* .nav-links {
-    color: grey;
-} */
-
 body {
     font-family: 'Roboto', sans-serif;
 }
@@ -42,8 +37,15 @@ body {
     padding: 15px;
     color: grey;
     border-bottom: 1px solid #dbdbdb;
+    /* setting sticky nav bar these three lines */
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    background-color: white;
+    /* then margin top for mainbody else */
+    /* now set it to always be on top of everything */
+    z-index: 100;
 }
-
 
 .header__icons {
     display: flex;
@@ -58,10 +60,13 @@ body {
     color: grey;
 }
 
-
 .header__left {
     display: flex;
     align-items: center;
+}
+
+.header__left a {
+    margin-right: 20px;
 }
 
 .header__left img {
@@ -103,8 +108,11 @@ body {
 .mainBody {
     height: calc(100vh - 70px);
     display: flex;
-    overflow: hidden;
+    /* this disables scrolling */
+    /* overflow: hidden; */ 
     background-color: #f9f9f9;
+    /* added sticky navbar so margin-top height of nav bar */
+    margin-top: 70px;
 }
 
 .sidebar {
@@ -147,16 +155,15 @@ hr {
     border: none;
 }
 
-/* 
-.sidebar-links {
-
-} */
 /* videos */
 
 .videos {
     background-color: #f9f9f9;
     width: 100%;
     height: 100%;
+    /* background-size: cover; */
+    /* had this at 100%, gray background cutting off bottom to early so calc */
+    /* height: calc(100vh - 70px); */
     padding: 15px 15px;
     border-top: 1px solid #ddd;
     overflow-y: scroll;
@@ -169,6 +176,7 @@ hr {
     justify-content: flex-start;
     flex-wrap: wrap;
     margin: 10px;
+    height: auto;
 }
 
 .video {
@@ -226,59 +234,6 @@ h1 {
     color: rgb(3, 3, 3);
 }
 
-@media (max-width: 425px) {
-    .header__search {
-        display: none;
-    }
-
-    /* .header__icons .material-icons {
-        display: none;
-    }
-
-    .header__icons .display-this {
-        display: inline;
-    } */
-
-    .sidebar {
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .header__search {
-        display: none;
-    }
-
-    .sidebar {
-        display: none;
-    }
-
-    .show-sidebar {
-        display: inline;
-        position: fixed;
-        top: 4.4rem;
-        height: auto;
-    }
-}
-
-
-/* @media (max-width: 941px) {
-    .header__search input {
-        width: 300px;
-    }
-} */
-
-
-/* @media (max-width: 768px) {
-    .play__video__container {
-        max-width: 650px;
-    }
-    .play__video {
-        max-width: 650px;
-    }
-}  */
-
-
 .play__video__container {
     margin-top: 15px;
     margin-left: 15px;
@@ -316,4 +271,101 @@ button.like_form {
 
 #description_on_play_pg {
     font-weight: bold;
+}
+
+.video__crud {
+    margin-top: 60px;
+}
+
+.video__crud__form {
+    padding-top: 70px;
+    margin-left: 70px;
+}
+
+.sign__in {
+    text-decoration: none;
+    color: grey;
+    margin-left: 15px;
+}
+
+.sign__in:hover {
+    color: grey;
+    text-decoration: underline;
+}
+
+.login_reg_forms {
+    padding-top: 70px;
+}
+
+.login__reg__logo {
+    margin-top: 60px;
+    /* text-align: center; */
+}
+
+
+
+
+
+
+
+
+
+/* ---------------------------@media--------------------------- */
+
+@media (max-width: 425px) {
+    .header__search {
+        display: none;
+    }
+
+/* .header__icons .material-icons {
+    display: none;
+}
+.header__icons .display-this {
+    display: inline;
+} */
+
+    .sidebar {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .header__search {
+        display: none;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .show-sidebar {
+        display: inline;
+        position: fixed;
+        top: 4.4rem;
+        height: auto;
+    }
+}
+
+/* @media (max-width: 768px) {
+    .play__video__container {
+        max-width: 650px;
+    }
+    .play__video {
+        max-width: 650px;
+    }
+}  */
+
+@media (max-width: 995px) {
+    .header__search i {
+        display: none;
+    }
+    .header__search input {
+        width: 400px;
+    }
+}
+
+@media (max-width: 849px) {
+    .header__search input {
+        max-width: 300px;
+    }
 }

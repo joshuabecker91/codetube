@@ -27,11 +27,12 @@
             </div>
 
             <div class="header__search">
-                <form action="/search">
-                    <input type="text" placeholder="Search" />
-                    <button type="submit"><i class="material-icons">search</i></button>
+                <form action="/results/" method="POST">
+                    {% csrf_token %}
+                    <input type="search" name="term" placeholder="Search" />
+                    <button type="submit"><i class="material-icons d-flex justify-content-between align-items-center">search</i></button>
                 </form>
-                <i data-toggle="tooltip" title="Search with your voice" class="material-icons">mic</i>
+                <i data-toggle="tooltip" title="Search with your voice" class="material-icons microphone">mic</i>
             </div>
 
             <div class="header__icons">
@@ -44,7 +45,7 @@
                 {% if user.id != null %}
                     <a data-toggle="tooltip" title="Logout" class="nav-link" href="/logout"><i class="material-icons display-this">account_circle</i></a>
                 {% else %}
-                    <a class="nav-link" href="/login_reg">Sign In</a>
+                    <a class="sign__in" href="/login_reg">Sign In</a>
                 {% endif %}
             </div>
         </div>
