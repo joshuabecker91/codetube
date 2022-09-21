@@ -27,11 +27,12 @@
             </div>
 
             <div class="header__search">
-                <form action="/search">
-                    <input type="text" placeholder="Search" />
-                    <button type="submit"><i class="material-icons">search</i></button>
+                <form action="/results/" method="POST">
+                    {% csrf_token %}
+                    <input type="search" name="term" placeholder="Search" />
+                    <button type="submit"><i class="material-icons d-flex justify-content-between align-items-center">search</i></button>
                 </form>
-                <i data-toggle="tooltip" title="Search with your voice" class="material-icons">mic</i>
+                <i data-toggle="tooltip" title="Search with your voice" class="material-icons microphone">mic</i>
             </div>
 
             <div class="header__icons">
@@ -44,7 +45,7 @@
                 {% if user.id != null %}
                     <a data-toggle="tooltip" title="Logout" class="nav-link" href="/logout"><i class="material-icons display-this">account_circle</i></a>
                 {% else %}
-                    <a class="nav-link" href="/login_reg">Sign In</a>
+                    <a class="sign__in" href="/login_reg">Sign In</a>
                 {% endif %}
             </div>
         </div>
@@ -84,16 +85,16 @@
                 {% for video in all_videos %}
                     <div class="video">
                         <div class="video__thumbnail">
-                            <img src="{{ video.thumbnail }}" alt="" />
+                            <a href="/play/{{video.id}}"><img src="{{ video.thumbnail }}" alt="" /></a>
                         </div>
                         <div class="video__details">
                             {#removed author div, will not have a profile logo for user#}
                             {#temporarily have p tag with id for testing#}
-                            <p>id {{ video.id }}</p>
+                            <!-- <p>id {{ video.id }}</p> -->
                             <div class="title">
-                                <h3>{{ video.title }}</h3>
+                                <a href="/play/{{video.id}}"><h3>{{ video.title }}</h3></a>
                                 <h6>{{ video.user.first_name }} {{ video.user.last_name }}</h6>
-                                <span>{{video.likes}} likes {{ video.views }} views</span>
+                                <span>{{video.likes}} likes • {{ video.views }} views</span>
                             </div>
                         </div>
                     </div>

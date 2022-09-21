@@ -18,10 +18,10 @@ menu.addEventListener('click', function () {
 
 
 
-$('#myModal').on('shown.bs.modal', function () {
-    $('#video1')[0].play();
-})
-$('#myModal').on('hidden.bs.modal', function () {
-    $('#video1')[0].pause();
-})
+// $('#myModal').on('shown.bs.modal', function () {
+//     $('#video1')[0].play();
+// })
+// $('#myModal').on('hidden.bs.modal', function () {
+//     $('#video1')[0].pause();
+// })
 

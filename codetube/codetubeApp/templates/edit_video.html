@@ -27,11 +27,12 @@
             </div>
 
             <div class="header__search">
-                <form action="/search">
-                    <input type="text" placeholder="Search" />
-                    <button type="submit"><i class="material-icons">search</i></button>
+                <form action="/results/" method="POST">
+                    {% csrf_token %}
+                    <input type="search" name="term" placeholder="Search" />
+                    <button type="submit"><i class="material-icons d-flex justify-content-between align-items-center">search</i></button>
                 </form>
-                <i data-toggle="tooltip" title="Search with your voice" class="material-icons">mic</i>
+                <i data-toggle="tooltip" title="Search with your voice" class="material-icons microphone">mic</i>
             </div>
 
             <div class="header__icons">
@@ -44,7 +45,7 @@
                 {% if user.id != null %}
                     <a data-toggle="tooltip" title="Logout" class="nav-link" href="/logout"><i class="material-icons display-this">account_circle</i></a>
                 {% else %}
-                    <a class="nav-link" href="/login_reg">Sign In</a>
+                    <a class="sign__in" href="/login_reg">Sign In</a>
                 {% endif %}
             </div>
         </div>
@@ -92,26 +93,26 @@
                     </div>
 
                     {#Edit Video Begins#}
-                    <div class="col">
-                        <h3>Edit Video</h3>
+                    <div class="col-8 video__crud__form">
+                        <h4>Edit Video</h4>
                         <form class="form" action="/update_video/{{video.id}}" method="POST">
                             {% csrf_token %}
                             <input type="hidden" name="user" value="{{user.id}}"/>
                             <input type="hidden" name="video" value="{{video.id}}"/>
     
-                            <label class="form-label" for="title">Title</label>
+                            <label class="form-label mt-2" for="title">Title</label>
                             <input class="form-control" type="text" name="title" value="{{video.title}}"/>
     
-                            <label class="form-label" for="video">Video URL</label>
+                            <label class="form-label mt-2" for="video">Video URL</label>
                             <input class="form-control" type="text" name="video" value="{{video.video}}"/>
     
-                            <label class="form-label" for="thumbnail">Thumbnail URL</label>
+                            <label class="form-label mt-2" for="thumbnail">Thumbnail URL</label>
                             <input class="form-control" type="text" name="thumbnail" value="{{video.thumbnail}}"/>
                             
-                            <label class="form-label" for="description">Description</label>
+                            <label class="form-label mt-2" for="description">Description</label>
                             <textarea rows="5" cols="25" class="form-control" name="description">{{video.description}}</textarea>
                             
-                            <input class="btn" type="submit" value="Submit"/>
+                            <input class="btn-sm btn-dark mt-3" type="submit" value="Submit"/>
                         </form>
                     </div>
                     {#Edit Video Ends#}

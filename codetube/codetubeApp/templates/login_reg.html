@@ -27,11 +27,12 @@
             </div>
 
             <div class="header__search">
-                <form action="/search">
-                    <input type="text" placeholder="Search" />
-                    <button type="submit"><i class="material-icons">search</i></button>
+                <form action="/results/" method="POST">
+                    {% csrf_token %}
+                    <input type="search" name="term" placeholder="Search" />
+                    <button type="submit"><i class="material-icons d-flex justify-content-between align-items-center">search</i></button>
                 </form>
-                <i data-toggle="tooltip" title="Search with your voice" class="material-icons">mic</i>
+                <i data-toggle="tooltip" title="Search with your voice" class="material-icons microphone">mic</i>
             </div>
 
             <div class="header__icons">
@@ -44,7 +45,7 @@
                 {% if user.id != null %}
                     <a data-toggle="tooltip" title="Logout" class="nav-link" href="/logout"><i class="material-icons display-this">account_circle</i></a>
                 {% else %}
-                    <a class="nav-link" href="/login_reg">Sign In</a>
+                    <a class="sign__in" href="/login_reg">Sign In</a>
                 {% endif %}
             </div>
         </div>
@@ -81,7 +82,7 @@
 
             {#Forms Begin#}
             <div class="container">
-                <div class="row">
+                <div class=" col-10 d-flex justify-content-between login_reg_forms">
                     <div class="messages">
                         {% if messages %}
                             <p><b>Error:</b> <br/>
@@ -92,49 +93,51 @@
                     </div>
 
                     {#Login Starts#}
-                    <div class="col">
-                        <h3>Log In</h3>
+                    <div class="col-5 card p-4">
+                        <h4>Log In</h4>
                         <form action="/login/" method="post">
                             {% csrf_token %}
                             <section>
-                                <label class="form-label" for="email">Email</label>
+                                <label class="form-label mt-2" for="email">Email</label>
                                 <input class="form-control" type="email" name="email">
                             </section>
                             <section>
-                                <label class="form-label" for="password">Password</label>
+                                <label class="form-label mt-2" for="password">Password</label>
                                 <input class="form-control" type="password" name="password">
                             </section>
-                            <input class="btn" type="submit" value="Log In"/>
+                            <input class="btn-sm btn-dark mt-3" type="submit" value="Log In"/>
                         </form>
+                        <img class="col-6 login__reg__logo" src="..\static\img\codetubelogo.png" alt="codetube logo"/>
+                        <p class="col-6 mt-3">Your Trusted Source for Software Development Education</p>
                     </div>
                     {#Login Ends#}
 
                     {#Registration Starts#}
-                    <div class="col">
-                        <h3>Register</h3>
+                    <div class="col-5 card p-4">
+                        <h4>Register</h4>
                         <form class="form" action="/register/" method="post">
                             {% csrf_token %}
                             <section>
-                                <label class="form-label" for="first_name">First Name </label>
+                                <label class="form-label mt-2" for="first_name">First Name </label>
                                 <input class="form-control" type="text" name="first_name">
                             </section>
                             <section>
-                                <label class="form-label" for="last_name">Last Name</label>
+                                <label class="form-label mt-2" for="last_name">Last Name</label>
                                 <input class="form-control" type="text" name="last_name">
                             </section>
                             <section>
-                                <label class="form-label" for="email">Email</label>
+                                <label class="form-label mt-2" for="email">Email</label>
                                 <input class="form-control" type="email" name="email">
                             </section>
                             <section>
-                                <label class="form-label" for="password">Password</label>
+                                <label class="form-label mt-2" for="password">Password</label>
                                 <input class="form-control" type="password" name="password">
                             </section>
                             <section>
-                                <label class="form-label" for="confirm_password">Confirm Password</label>
+                                <label class="form-label mt-2" for="confirm_password">Confirm Password</label>
                                 <input class="form-control" type="password" name="confirm_password">
                             </section>
-                            <input class="btn" type="submit" value="Register"/>
+                            <input class="btn-sm btn-dark mt-3" type="submit" value="Register"/>
                         </form>
                     </div>
                     {#Registration Ends#}
