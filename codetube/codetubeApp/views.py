@@ -11,30 +11,46 @@ logger = logging.getLogger('django')
 
 # Main Landing Page
 def index(request):
+    # so that we know whether to display log in or log out button
+    if 'user_id' in request.session:
+        user = User.objects.get(id=request.session['user_id'])
+    else:
+        user = { 'user_id' : 'null' }
     all_videos = Video.objects.all()
     # randomize all_videos on landing page
     new_videos = list(all_videos)
     x = len(new_videos)
     random_videos = random.sample(new_videos, k=x)
     context = {
+        'user' : user,
         'all_videos' : random_videos
     }
     return render(request, 'index.html', context)
 
 # Search Page - filter results based on search term
 def search(request, term):
+    if 'user_id' in request.session:
+        user = User.objects.get(id=request.session['user_id'])
+    else:
+        user = { 'user_id' : 'null' }
     all_videos = Video.objects.all()
     filtered_videos = all_videos.filter(title__icontains=term)
     context = {
+        'user' : user,
         'all_videos': filtered_videos,
     }
     return render(request, 'search.html', context)
 
 # Popular Videos
 def popular_videos(request):
+    if 'user_id' in request.session:
+        user = User.objects.get(id=request.session['user_id'])
+    else:
+        user = { 'user_id' : 'null' }
     all_videos = Video.objects.all()
     popular_videos = all_videos.order_by("-views")
     context = {
+        'user' : user,
         'all_videos': popular_videos,
     }
     return render(request, 'index.html', context)
@@ -65,6 +81,8 @@ def popular_videos(request):
 
 # maybe let them go here and if they are logged in render logout button "you are logged in as xyz click here to log out"
 def login_reg(request):
+    if 'user_id' in request.session: # already logged in? re-route
+        return redirect('/')
     return render(request, 'login_reg.html')
 
 # Register a New User
@@ -122,6 +140,10 @@ def dashboard(request):
 
 # Play video - every view incriments views by one. get like count. - complete
 def play_video(request, id):
+    if 'user_id' in request.session:
+        user = User.objects.get(id=request.session['user_id'])
+    else:
+        user = { 'user_id' : 'null' }
     video = Video.objects.get(id=id)
     # replacing youtube browser url / link with an embeddable link allowing us to play with youtube controls.
     vid_url = video.video
@@ -137,6 +159,7 @@ def play_video(request, id):
         if like.video == Video.objects.get(id=id):
             likes = likes + 1
     context = {
+        'user' : user,
         'video' : video,
         'likes' : likes
     }
@@ -252,6 +275,7 @@ def user_liked(request):
         'liked_videos': liked_videos
     }
     return render(request, 'user_liked.html', context)
+
 
 # If you want to be able to update user, reference ------------------------------------------
 

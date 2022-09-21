@@ -35,14 +35,14 @@
                     <input type="text" name="term" placeholder="Search" />
                     <button type="submit"><i class="material-icons">search</i></button>
                 </form>
-                <i class="material-icons">mic</i>
+                <!-- <i class="material-icons">mic</i> -->
             </div>
 
             <div class="header__icons">
                 {% if user.id != null %}
                     <a data-toggle="tooltip" title="Add Video" class="nav-link" href="/new_video"><i class="material-icons">video_call</i></a>
                 {% else %}
-                    <a data-toggle="tooltip" title="Sign In" class="nav-link" href="/login_reg"><i class="material-icons">video_call</i></a>
+                    <!-- <a data-toggle="tooltip" title="Sign In" class="nav-link" href="/login_reg"><i class="material-icons">video_call</i></a> -->
                 {% endif %}
                 <i class="material-icons">notifications</i>
                 {% if user.id != null %}
@@ -106,7 +106,7 @@
             {#Video Section Ends#}
 
 
-            {#testing code#}
+            <!-- {#testing code#}
             <div>
                 <p>Test Code</p>
                 <p>{{request.session.user_id}}</p>
@@ -114,7 +114,7 @@
                 <p>{{user.first_name}}</p>
                 <p>{{user.last_name}}</p>
                 <p>{{user.email}}</p>
-            </div>
+            </div> -->
 
 
         </div>
