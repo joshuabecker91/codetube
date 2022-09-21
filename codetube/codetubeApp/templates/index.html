@@ -31,9 +31,10 @@
             </div>
 
             <div class="header__search">
-                <form action="/results/{{term}}" method="GET">
-                    <input type="text" name="term" placeholder="Search" />
-                    <button type="submit"><i class="material-icons">search</i></button>
+                <form action="/results/" method="POST">
+                    {% csrf_token %}
+                    <input type="search" name="term" placeholder="Search" />
+                    <button type="submit"><i class="material-icons d-flex justify-content-between align-items-center">search</i></button>
                 </form>
                 <i data-toggle="tooltip" title="Search with your voice" class="material-icons">mic</i>
             </div>
