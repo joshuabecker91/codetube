@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* border: 1px solid grey;        remove later */
+    /* border: 1px solid grey; */
 }
 
 .sidebar__link {
@@ -40,6 +40,7 @@ body {
     height: 70px;
     padding: 15px;
     color: grey;
+    border-bottom: 1px solid #dbdbdb;
 }
 
 
@@ -57,10 +58,10 @@ body {
 }
 
 
-/* .header__left {
+.header__left {
     display: flex;
     align-items: center;
-} */
+}
 
 .header__left img {
     width: 100px;
@@ -102,6 +103,7 @@ body {
     height: calc(100vh - 70px);
     display: flex;
     overflow: hidden;
+    background-color: #f9f9f9;
 }
 
 .sidebar {
@@ -144,9 +146,10 @@ hr {
     border: none;
 }
 
+/* 
 .sidebar-links {
 
-}
+} */
 /* videos */
 
 .videos {
@@ -158,18 +161,19 @@ hr {
     overflow-y: scroll;
 }
 
+/* this fixed the x axis spacing, we still need y axis spacing flex start */
 .videos__container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin: 10px;
 }
 
 .video {
     width: 310px;
-
-    margin-bottom: 30px;
+    margin:12px;
+    /* margin-bottom: 30px; */
 }
 
 .video__thumbnail {
@@ -256,8 +260,45 @@ h1 {
     }
 }
 
-@media (max-width: 941px) {
+
+/* @media (max-width: 941px) {
     .header__search input {
         width: 300px;
     }
+} */
+
+
+/* @media (max-width: 768px) {
+    .play__video__container {
+        max-width: 650px;
+    }
+    .play__video {
+        max-width: 650px;
+    }
+}  */
+
+
+.play__video__container {
+    margin-top: 15px;
+    margin-left: 15px;
+    max-width: 900px;
+    /* width: 80% !important; */
+    /* height: 100% !important; */
+    /* max-width: 950px; */
+    /* min-width: 300px; */
+}
+
+/* .play__video {
+    width: 80vw !important;
+    height: 80vh !important;
+} */
+
+.play__update__buttons {
+    text-decoration: none;
+    color: grey;
+}
+
+.play__update__buttons:hover {
+    text-decoration: underline;
+    color: grey;
 }

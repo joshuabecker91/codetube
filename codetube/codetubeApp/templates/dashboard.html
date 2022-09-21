@@ -31,7 +31,7 @@
                     <input type="text" placeholder="Search" />
                     <button type="submit"><i class="material-icons">search</i></button>
                 </form>
-                <i class="material-icons">mic</i>
+                <!-- <i class="material-icons">mic</i> -->
             </div>
 
             <div class="header__icons">
@@ -82,14 +82,14 @@
                             <div class="video__details">
                                 {#removed author div, will not have a profile logo for user#}
                                 {#temporarily have p tag with id for testing#}
-                                <p>id {{ video.id }}</p>
+                                <!-- <p>id {{ video.id }}</p> -->
                                 <div class="title">
                                     <a href="/play/{{video.id}}"><h3>{{ video.title }}</h3></a>
                                     <h3>{{ video.user.first_name }} {{ video.user.last_name }}</h3>
                                     <span>{{video.likes}} likes • {{ video.views }} views</span>
                                     <div>
-                                        <a href="/edit_video/{{video.id}}">Edit</a>
-                                        <a href="/delete_video/{{video.id}}">Delete</a>
+                                        <a class="play__update__buttons" href="/edit_video/{{video.id}}">Edit</a>
+                                        <a class="play__update__buttons" href="/delete_video/{{video.id}}">Delete</a>
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
             {#Video Section Ends#}
 
 
-            {#testing code#}
+            <!-- {#testing code#}
             <div>
                 <p>Test Code</p>
                 <p>{{request.session.user_id}}</p>
@@ -109,7 +109,7 @@
                 <p>{{user.first_name}}</p>
                 <p>{{user.last_name}}</p>
                 <p>{{user.email}}</p>
-            </div>
+            </div> -->
 
 
         </div>
