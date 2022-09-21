@@ -28,13 +28,13 @@ def index(request):
     return render(request, 'index.html', context)
 
 # Search Page - filter results based on search term
-def search(request, term):
+def search(request):
     if 'user_id' in request.session:
         user = User.objects.get(id=request.session['user_id'])
     else:
         user = { 'user_id' : 'null' }
     all_videos = Video.objects.all()
-    filtered_videos = all_videos.filter(title__icontains=term)
+    filtered_videos = all_videos.filter(title__icontains=request.POST['term'])
     context = {
         'user' : user,
         'all_videos': filtered_videos,
@@ -169,7 +169,11 @@ def play_video(request, id):
 def new_video(request):
     if 'user_id' not in request.session:
         return redirect('/')
-    return render(request, 'new_video.html')
+    user = User.objects.get(id=request.session['user_id'])
+    context = {
+        'user' : user,
+    }
+    return render(request, 'new_video.html', context)
 
 # Create a new video - Completed
 def create_video(request):
@@ -192,7 +196,9 @@ def edit_video(request, id):
     video = Video.objects.get(id=id)
     if request.session['user_id'] != video.user.id:
         return redirect('/')
+    user = User.objects.get(id=request.session['user_id'])
     context = {
+        'user' : user,
         'video' : Video.objects.get(id=id)
     }
     return render(request, 'edit_video.html', context)
