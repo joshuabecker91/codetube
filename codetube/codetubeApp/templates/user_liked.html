@@ -27,17 +27,25 @@
             </div>
 
             <div class="header__search">
-                <form action="/search">
-                    <input type="text" placeholder="Search" />
-                    <!-- <button><i class="material-icons">search</i></button> -->
+                <form action="/results/{{term}}" method="GET">
+                    <input type="text" name="term" placeholder="Search" />
+                    <button type="submit"><i class="material-icons">search</i></button>
                 </form>
+                <i data-toggle="tooltip" title="Search with your voice" class="material-icons">mic</i>
             </div>
 
             <div class="header__icons">
-                <a class="nav-link" href="/new_video"><i class="material-icons">video_call</i> Add Video</a>
-                <i class="material-icons">apps</i>
-                <i class="material-icons">notifications</i>
-                <a class="nav-link" href="/logout"><i class="material-icons display-this">account_circle</i> Log Out</a>
+                {% if user.id != null %}
+                    <a data-toggle="tooltip" title="Add Video" class="nav-link" href="/new_video"><i class="material-icons">video_call</i></a>
+                {% else %}
+                    <a data-toggle="tooltip" title="Sign In" class="nav-link" href="/login_reg"><i class="material-icons">video_call</i></a>
+                {% endif %}
+                <a data-toggle="tooltip" title="Project Info" href="https://github.com/joshuabecker91/codetube"><i class="material-icons">hub</i></a>
+                {% if user.id != null %}
+                    <a data-toggle="tooltip" title="Logout" class="nav-link" href="/logout"><i class="material-icons display-this">account_circle</i></a>
+                {% else %}
+                    <a class="nav-link" href="/login_reg">Sign In</a>
+                {% endif %}
             </div>
         </div>
         {#Header Ends#}
