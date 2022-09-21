@@ -31,7 +31,7 @@
                     <input type="text" placeholder="Search" />
                     <button type="submit"><i class="material-icons">search</i></button>
                 </form>
-                <!-- <i class="material-icons">mic</i> -->
+                <i data-toggle="tooltip" title="Search with your voice" class="material-icons">mic</i>
             </div>
 
             <div class="header__icons">
@@ -40,7 +40,7 @@
                 {% else %}
                     <a data-toggle="tooltip" title="Sign In" class="nav-link" href="/login_reg"><i class="material-icons">video_call</i></a>
                 {% endif %}
-                <i class="material-icons">notifications</i>
+                <a data-toggle="tooltip" title="Project Info" href="https://github.com/joshuabecker91/codetube"><i class="material-icons">hub</i></a>
                 {% if user.id != null %}
                     <a data-toggle="tooltip" title="Logout" class="nav-link" href="/logout"><i class="material-icons display-this">account_circle</i></a>
                 {% else %}

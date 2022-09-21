@@ -31,7 +31,7 @@
                     <input type="text" placeholder="Search" />
                     <button type="submit"><i class="material-icons">search</i></button>
                 </form>
-                <!-- <i class="material-icons">mic</i> -->
+                <i data-toggle="tooltip" title="Search with your voice" class="material-icons">mic</i>
             </div>
 
             <div class="header__icons">
@@ -40,7 +40,7 @@
                 {% else %}
                     <a data-toggle="tooltip" title="Sign In" class="nav-link" href="/login_reg"><i class="material-icons">video_call</i></a>
                 {% endif %}
-                <i class="material-icons">notifications</i>
+                <a data-toggle="tooltip" title="Project Info" href="https://github.com/joshuabecker91/codetube"><i class="material-icons">hub</i></a>
                 {% if user.id != null %}
                     <a data-toggle="tooltip" title="Logout" class="nav-link" href="/logout"><i class="material-icons display-this">account_circle</i></a>
                 {% else %}
@@ -84,39 +84,45 @@
                 {#Video Section Starts#}
                 <div class="play__video__container">	
                     <div class="col-12">
-                        <!-- <figure>
-                            <video src="{{ video.video }}" alt="" onmouseover="playVideo(this)"></video>
-                        </figure> -->
                         <iframe class="play__video" width="900" height="506" src={{video.video}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <!-- need to figure out how to do f string with a python splice for url   on the backend before urls are sent to the front end {{video.video}} -->
                     </div>
-                    <!-- <img style="width: 300px;" src="{{ video.thumbnail }}" alt=""/> -->
+
                     <!-- <p>video id: {{ video.id }}</p> -->
-                    <!-- <p>video url: {{ video.video }}</p> -->
+
                     <div class="col-12 d-flex justify-content-between">
                         <div class="col-8 mt-2">
                             <h4>{{ video.title }}</h4>
-                            <p class="video__description">{{ video.description }}</p>
+                            <p class="video__description"><span id="description_on_play_pg">{{ video.views }} views {{ video.created_at }}</span> {{ video.description }}</p>
                             <h6>{{ video.user.first_name }} {{ video.user.last_name }}</h6>
                         </div>
-                        <div class="col-4 d-flex justify-content-end mt-2">
-                            <div class="d-inline-block">
-                                <span>{{ video.created_at }}</span>
-                                <form action = "/like_video/{{video.id}}" method = "post">
-                                    {% csrf_token %}
-                                    <input type="hidden" name='video_id' value='{{video.id}}'>
-                                    <button type="submit" style="border: none;"><i class="material-icons">thumb_up</i></button>
-                                    <span>{{video.likes}} likes • {{ video.views }} views</span>
-                                </form>
-                                {% if request.session.user_id == video.user.id %}
-                                <div>
-                                    <a class="play__update__buttons" href="/edit_video/{{video.id}}">Edit</a>
-                                    <a class="play__update__buttons" href="/delete_video/{{video.id}}">Delete</a>
-                                </div>
-                                {% endif %}
+                        <div class="d-inline-flex justify-content-between mt-2">
+                            <form action = "/like_video/{{video.id}}" method = "post">
+                                {% csrf_token %}
+                                <input type="hidden" name='video_id' value='{{video.id}}'>
+                                <button type="submit" class="like_form"><i data-toggle="tooltip" title="I like this" class="material-icons m-1">thumb_up</i></button>
+                            </form>
+
+                            <h4 id="likes_on_play_pg"> {{video.likes}} </h4>
+
+                            {% if request.session.user_id == video.user.id %}
+                            <div>
+                                <a class="play__update__buttons" href="/edit_video/{{video.id}}"><i data-toggle="tooltip" title="No dislike here" class="material-icons m-1">edit</i></a>
+                                <a class="play__update__buttons" href="/delete_video/{{video.id}}"><i data-toggle="tooltip" title="No dislike here" class="material-icons m-1">delete</i></a>
                             </div>
+                            {% endif %}
+
+                            <!-- <p>
+                                {{video.likes}}
+                                <i data-toggle="tooltip" title="No dislike here" class="material-icons m-1">thumb_down</i> Dislike
+                                <i data-toggle="tooltip" title="Show support with Super Thanks" class="material-icons m-1">favorite</i> Thanks
+                                <i data-toggle="tooltip" title="Clip" class="material-icons m-1">content_cut</i> Clip
+                                <i data-toggle="tooltip" title="Save" class="material-icons m-1">playlist_add</i> Save 
+                                <i data-toggle="tooltip" title="Save" class="material-icons m-1">more_horiz</i>
+                            </p> -->
                         </div>
                     </div>
+                    
                 </div>
                 {#Video Section Ends#}
             </div>
