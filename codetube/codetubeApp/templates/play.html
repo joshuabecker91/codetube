@@ -20,7 +20,7 @@
         {#Header Starts#}
         <div class="header">
             <div class="header__left">
-                <i id="menu" class="material-icons">menu</i>
+                <i id="menu" class="material-icons"  onclick="toggleSidebar()">menu</i>
                 <a href="/">
                     <img src="..\static\img\codetubelogo.png" alt="codetube logo"/> 
                 </a>
@@ -54,7 +54,7 @@
             {#Main Body Starts#}
             <div class="mainBody">
                 {#Sidebar Starts#}
-                <div class="sidebar">
+                <div class="sidebar" id="sidebar">
                     <div class="sidebar__categories">
                         <div class="sidebar__category">
                             <i class="material-icons">home</i>
@@ -124,6 +124,27 @@
                     </div>
                     
                 </div>
+                {#Video Section#}
+                <div class="videos__play__container">
+                    {% for video in video_list %}
+                        <div class="video">
+                            <div class="video__thumbnail">
+                                <a href="/play/{{video.id}}"><img src="{{ video.thumbnail }}" alt="" /></a>
+                            </div>
+                            <div class="video__details">
+                                {#removed author div, will not have a profile logo for user#}
+                                {#temporarily have p tag with id for testing#}
+                                <!-- <p>id {{ video.id }}</p> -->
+                                <div class="title">
+                                    <a href="/play/{{video.id}}"><h3>{{ video.title }}</h3></a>
+                                    <h3>{{ video.user.first_name }} {{ video.user.last_name }}</h3>
+                                    <span>{{video.likes}} likes • {{ video.views }} views</span>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                {#Video Section Ends#}
                 {#Video Section Ends#}
             </div>
             {#Main Body Ends#}

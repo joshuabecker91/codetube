@@ -24,7 +24,7 @@
         {#Header Starts#}
         <div class="header">
             <div class="header__left">
-                <i id="menu" class="material-icons">menu</i>
+                <i id="menu" class="material-icons"  onclick="toggleSidebar()">menu</i>
                 <a href="/">
                     <img src="..\static\img\codetubelogo.png" alt="codetube logo"/> 
                 </a>
@@ -58,7 +58,7 @@
         {#Main Body Starts#}
         <div class="mainBody">
             {#Sidebar Starts#}
-            <div class="sidebar">
+            <div class="sidebar" id="sidebar">
                 <div class="sidebar__categories">
                     <div class="sidebar__category">
                         <i class="material-icons">home</i>

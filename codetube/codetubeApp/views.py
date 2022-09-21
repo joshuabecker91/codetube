@@ -152,6 +152,12 @@ def play_video(request, id):
     # video view count
     video.views = video.views + 1
     video.save()
+    all_videos = Video.objects.all()
+    new_videos = list(all_videos)
+    x = len(new_videos)
+    random_videos = random.sample(new_videos, k=x)
+    video_list = random_videos[0:10]
+    logger.info(video_list)
     likes = 0
     # video likes
     all_likes = Liked.objects.all()
@@ -161,7 +167,8 @@ def play_video(request, id):
     context = {
         'user' : user,
         'video' : video,
-        'likes' : likes
+        'likes' : likes,
+        'video_list': video_list
     }
     return render(request, 'play.html', context)
 
