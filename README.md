@@ -20,4 +20,19 @@ AWS EC2 Deployed http://54.153.114.188/
 
 https://github.com/joshuabecker91/codetube
 
+![image](https://user-images.githubusercontent.com/98496684/191823386-ca224d16-ab23-43dd-a501-b84e5d42aeaa.png)
+
+![image](https://user-images.githubusercontent.com/98496684/191823465-6d3a3b65-e324-4816-8d83-4992d0db1cc3.png)
+
+![image](https://user-images.githubusercontent.com/98496684/191823565-5d0488dd-eb4f-49aa-962b-ce0e66d5dbc6.png)
+
+![image](https://user-images.githubusercontent.com/98496684/191823620-5718db01-194d-46d2-a7a9-4b1dcfface41.png)
+
+![image](https://user-images.githubusercontent.com/98496684/191823794-89c38e82-13c8-4391-b282-9f1b943533cd.png)
+
+![image](https://user-images.githubusercontent.com/98496684/191823699-34f80273-304d-4247-a11e-d56457336118.png)
+
+
+
+
 "# codetube" 
