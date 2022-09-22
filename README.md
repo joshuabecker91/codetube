@@ -22,21 +22,18 @@ https://github.com/joshuabecker91/codetube
 
 ![image](https://user-images.githubusercontent.com/98496684/191837282-214d6ac6-f4b1-45d1-961e-288f99bcd903.png)
 
+![image](https://user-images.githubusercontent.com/98496684/191837997-4de3059d-2160-4938-a700-d32f45b043aa.png)
+
 ![image](https://user-images.githubusercontent.com/98496684/191837362-59bb357c-58f9-44c0-b474-8c547986ce1d.png)
 
 ![image](https://user-images.githubusercontent.com/98496684/191837466-3eeb3ccc-2435-494f-9862-b04decf4001e.png)
 
 ![image](https://user-images.githubusercontent.com/98496684/191837524-e4c7ad06-a814-484d-b6fd-b72a45ee402e.png)
 
-![image](https://user-images.githubusercontent.com/98496684/191823565-5d0488dd-eb4f-49aa-962b-ce0e66d5dbc6.png)
+![image](https://user-images.githubusercontent.com/98496684/191837806-db7a9894-3a8a-4d2e-8a2a-13f53bc11a94.png)
 
-![image](https://user-images.githubusercontent.com/98496684/191823620-5718db01-194d-46d2-a7a9-4b1dcfface41.png)
+![image](https://user-images.githubusercontent.com/98496684/191837918-237d19a6-02ef-49de-bd26-cd3967a33563.png)
 
-![image](https://user-images.githubusercontent.com/98496684/191823794-89c38e82-13c8-4391-b282-9f1b943533cd.png)
-
-![image](https://user-images.githubusercontent.com/98496684/191823699-34f80273-304d-4247-a11e-d56457336118.png)
-
-
-
+![image](https://user-images.githubusercontent.com/98496684/191837944-0cd740c9-47e7-47e0-964d-92f6cc83f20b.png)
 
 "# codetube" 
