@@ -16,7 +16,6 @@ CodeTube is a full stack YouTube clone that is dedicated to software development
 - Videos render randomly when on the home page. Dashboard page renders only the videos that belong to that user.
 - Majority of CSS clone styling done manually to demonstrate proficiency in CSS styling.
 
-http://www.mycodetube.com 
 AWS EC2 Deployed http://54.153.114.188/
 https://github.com/joshuabecker91/codetube
 
