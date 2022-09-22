@@ -82,18 +82,11 @@
 
             {#Forms Begin#}
             <div class="container">
-                <div class=" col-10 d-flex justify-content-between forms">
-                    <div class="messages">
-                        {% if messages %}
-                            <p><b>Error:</b> <br/>
-                            {% for message in messages %}
-                                {{message}} <br/>
-                            {% endfor %}</p>
-                        {% endif %}
-                    </div>
+                
+                <div class="col-10 d-flex justify-content-around forms">
 
                     {#Login Starts#}
-                    <div class="col-5 card p-4">
+                    <div class="col-5 card p-4 login__reg__forms">
                         <h4>Log In</h4>
                         <form action="/login/" method="post">
                             {% csrf_token %}
@@ -112,8 +105,17 @@
                     </div>
                     {#Login Ends#}
 
+                    <div class="messages m-2 text-danger">
+                        {% if messages %}
+                            <p><b class="text-dark">Error:</b> <br/>
+                            {% for message in messages %}
+                                • {{message}} <br/>
+                            {% endfor %}</p>
+                        {% endif %}
+                    </div>
+
                     {#Registration Starts#}
-                    <div class="col-5 card p-4">
+                    <div class="col-5 card p-4 login__reg__forms">
                         <h4>Register</h4>
                         <form class="form" action="/register/" method="post">
                             {% csrf_token %}
@@ -141,6 +143,7 @@
                         </form>
                     </div>
                     {#Registration Ends#}
+
                 </div>
             </div>
             {#Forms End#}

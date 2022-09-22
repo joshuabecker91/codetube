@@ -113,6 +113,7 @@ def login(request):
                 return redirect('/dashboard')
             else:
                 messages.error(request,"Password is incorrect.")
+                return redirect('/login_reg')
         else:
             messages.error(request,"Email was not found.")
             return redirect('/login_reg') # added this line, if email not found was sending them back to home
@@ -126,7 +127,7 @@ def logout(request):
 # Dashboard - Check if Logged in, can add get like count
 def dashboard(request):
     if 'user_id' not in request.session:
-        return redirect('/')
+        return redirect('/login_reg')
     user = User.objects.get(id=request.session['user_id'])
     context = {
         'user' : user,
@@ -274,7 +275,7 @@ def like_video(request, id):
 # User liked videos
 def user_liked(request):
     if 'user_id' not in request.session:
-        return redirect('/')
+        return redirect('/login_reg')
     user = User.objects.get(id=request.session['user_id'])
     all_likes = Liked.objects.all()
     liked_videos = []

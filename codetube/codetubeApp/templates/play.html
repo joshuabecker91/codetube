@@ -105,6 +105,8 @@
                             </form>
 
                             <h4 id="likes_on_play_pg"> {{video.likes}} </h4>
+                            
+                            <i data-toggle="tooltip" title="Copy Link" class="material-icons ms-2 m-1 clipboard" onclick="copyToClipboard()">screen_share</i>
 
                             {% if request.session.user_id == video.user.id %}
                             <div>

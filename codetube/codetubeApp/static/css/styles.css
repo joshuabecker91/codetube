@@ -182,7 +182,8 @@ hr {
 .videos__container {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
+    align-content: flex-start;
     flex-wrap: wrap;
     margin: 10px;
     height: auto;
@@ -192,10 +193,13 @@ hr {
     /* display: flex; */
     /* flex-direction: row; */
     /* justify-content: flex-start; */
-    margin-left: 20px;
+    margin: 6px 10px 10px 20px;
+    padding-left: 8px;
+    padding-right: 8px;
     flex-wrap: wrap;
     overflow: scroll;
-    margin: 10px;
+    border-left: 1px solid #e9e9e9;
+    /* margin: 10px; */
 }
 
 .video {
@@ -254,8 +258,8 @@ h1 {
 }
 
 .play__video__container {
-    margin-top: 15px;
-    margin-left: 15px;
+    margin-top: 18px;
+    margin-left: 18px;
     max-width: 900px;
     /* width: 80% !important; */
     /* height: 100% !important; */
@@ -324,7 +328,6 @@ button.like_form {
 
 
 
-
 /* ---------------------------@media--------------------------- */
 
 /* #sidebar {
@@ -337,6 +340,7 @@ button.like_form {
     min-width: 230px;
     background-color: white;
     overflow-y: scroll;
+    z-index: 99;
 }
 
 @media (max-width: 425px) {
@@ -381,11 +385,11 @@ button.like_form {
     }
 }
 
-@media (min-width: 769px) {
+/* @media (min-width: 769px) {
     #menu {
         opacity: .3;
     }
-}
+} */
 
 /* @media (max-width: 768px) {
     .play__video__container {
@@ -415,4 +419,13 @@ button.like_form {
     .videos__container {
         justify-content: center;
     }
+}
+
+.video__thumbnail:hover {
+    transform: scale(1.1);
+}
+
+.clipboard {
+    cursor: pointer;
+    height: 30px;
 }
