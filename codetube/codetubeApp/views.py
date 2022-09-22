@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import *      # from codetubeApp.models import *
+from .models import *
 from django.contrib import messages
 import random
 import bcrypt
@@ -79,7 +79,7 @@ def popular_videos(request):
 
 # Login and Registration --------------------------------------------------------------------
 
-# maybe let them go here and if they are logged in render logout button "you are logged in as xyz click here to log out"
+# Login and Registration form page
 def login_reg(request):
     if 'user_id' in request.session: # already logged in? re-route
         return redirect('/')
@@ -101,7 +101,7 @@ def register(request):
         return redirect('/dashboard')
     return redirect('/')
 
-# Login - add if already logged in then what?
+# Login
 def login(request):
     if request.method=='POST':
         logged_user=User.objects.filter(email=request.POST['email'])
@@ -119,12 +119,12 @@ def login(request):
             return redirect('/login_reg') # added this line, if email not found was sending them back to home
     return redirect('/')
 
-# Logout
+# Logout - Clear Session
 def logout(request):
     request.session.clear()
     return redirect('/')
 
-# Dashboard - Check if Logged in, can add get like count
+# Dashboard - Check if Logged in, get like count and all videos
 def dashboard(request):
     if 'user_id' not in request.session:
         return redirect('/login_reg')
@@ -139,7 +139,7 @@ def dashboard(request):
 
 # Videos ------------------------------------------------------------------------------------
 
-# Play video - every view incriments views by one. get like count. - complete
+# Play video - every view incriments views by one, get like count
 def play_video(request, id):
     if 'user_id' in request.session:
         user = User.objects.get(id=request.session['user_id'])
@@ -173,7 +173,7 @@ def play_video(request, id):
     }
     return render(request, 'play.html', context)
 
-# New video form page - Completed
+# New video form page
 def new_video(request):
     if 'user_id' not in request.session:
         return redirect('/')
@@ -183,7 +183,7 @@ def new_video(request):
     }
     return render(request, 'new_video.html', context)
 
-# Create a new video - Completed
+# Create a new video
 def create_video(request):
     if 'user_id' not in request.session:
         return redirect('/')
@@ -197,7 +197,7 @@ def create_video(request):
         return redirect('/dashboard')
     return redirect('/new_video')
 
-# Edit video form page - Completed
+# Edit video form page
 def edit_video(request, id):
     if 'user_id' not in request.session: 
         return redirect('/')
@@ -211,7 +211,7 @@ def edit_video(request, id):
     }
     return render(request, 'edit_video.html', context)
 
-# Update video - Completed
+# Update video
 def update_video(request, id):
     if 'user_id' not in request.session: 
         return redirect('/')
@@ -233,7 +233,7 @@ def update_video(request, id):
         return redirect('/dashboard')
     return redirect('/edit_video/<int:id>')
 
-# Delete video - Completed
+# Delete video
 def delete_video(request, id):
     if 'user_id' not in request.session: 
         return redirect('/')
@@ -252,8 +252,6 @@ def like_video(request, id):
     if request.method=='POST':
         if 'user_id' not in request.session: 
             return redirect(f'/play/{id}')
-        # will like id auto generate on the like table? do we need need to do have hidden input on like button type=submit name =like?
-        # if like already exists in table redirect
         video = Video.objects.get(id=id)
         user = User.objects.get(id=request.session['user_id'])
         all_likes = Liked.objects.all()
