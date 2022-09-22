@@ -83,28 +83,20 @@
             {#Form Begins#}
             <div class="container">
                 <div class="col-10 forms d-flex justify-content-center">
-                    <div class="messages">
-                        {% if messages %}
-                            <p><b>Error:</b> <br/>
-                            {% for message in messages %}
-                                {{message}} <br/>
-                            {% endfor %}</p>
-                        {% endif %}
-                    </div>
                     
                     {#Add Video Begins#}
-                    <div class="col-5 card p-4">
+                    <div class="col-sm-12 col-md-10 col-lg-8 card p-4">
                         <h4>Add A New Video</h4>
                         <form class="form" action="/create_video/" method="POST">
                             {% csrf_token %}
                             <input type="hidden" name="user" value="{{user.id}}"/>
-    
+
                             <label class="form-label mt-2" for="title">Title</label>
                             <input class="form-control" type="text" name="title"/>
-    
+
                             <label class="form-label mt-2" for="video">Video URL</label>
                             <input class="form-control" type="text" name="video"/>
-    
+
                             <label class="form-label mt-2" for="thumbnail">Thumbnail URL</label>
                             <input class="form-control" type="text" name="thumbnail"/>
                             
@@ -113,6 +105,16 @@
                             
                             <input class="btn-sm btn-dark mt-3" type="submit" value="Submit"/>
                         </form>
+
+                        <div class="messages mt-4">
+                            {% if messages %}
+                                <p><b>Error:</b> <br/>
+                                {% for message in messages %}
+                                    {{message}} <br/>
+                                {% endfor %}</p>
+                            {% endif %}
+                        </div>
+
                     </div>
                     {#Add Video Ends#}
                 </div>
