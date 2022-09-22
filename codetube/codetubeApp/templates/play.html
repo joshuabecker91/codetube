@@ -108,8 +108,8 @@
 
                             {% if request.session.user_id == video.user.id %}
                             <div>
-                                <a class="play__update__buttons" href="/edit_video/{{video.id}}"><i data-toggle="tooltip" title="No dislike here" class="material-icons m-1">edit</i></a>
-                                <a class="play__update__buttons" href="/delete_video/{{video.id}}"><i data-toggle="tooltip" title="No dislike here" class="material-icons m-1">delete</i></a>
+                                <a class="play__update__buttons" href="/edit_video/{{video.id}}"><i data-toggle="tooltip" title="Edit" class="material-icons m-1">edit</i></a>
+                                <a class="play__update__buttons" href="/delete_video/{{video.id}}"><i data-toggle="tooltip" title="Delete" class="material-icons m-1">delete</i></a>
                             </div>
                             {% endif %}
 

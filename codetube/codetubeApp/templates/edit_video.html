@@ -82,7 +82,7 @@
 
             {#Form Begins#}
             <div class="container">
-                <div class="row">
+                <div class="col-10 forms d-flex justify-content-center">
                     <div class="messages">
                         {% if messages %}
                             <p><b>Error:</b> <br/>
@@ -93,7 +93,7 @@
                     </div>
 
                     {#Edit Video Begins#}
-                    <div class="col-8 video__crud__form">
+                    <div class="col-5 card p-4">
                         <h4>Edit Video</h4>
                         <form class="form" action="/update_video/{{video.id}}" method="POST">
                             {% csrf_token %}
