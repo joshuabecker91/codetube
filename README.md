@@ -24,9 +24,9 @@ https://github.com/joshuabecker91/codetube
 
 ![image](https://user-images.githubusercontent.com/98496684/191837362-59bb357c-58f9-44c0-b474-8c547986ce1d.png)
 
-![image](https://user-images.githubusercontent.com/98496684/191837997-4de3059d-2160-4938-a700-d32f45b043aa.png)
-
 ![image](https://user-images.githubusercontent.com/98496684/191838104-a54df0d8-bef6-41e7-ae45-578482f718e7.png)
+
+![image](https://user-images.githubusercontent.com/98496684/191837997-4de3059d-2160-4938-a700-d32f45b043aa.png)
 
 ![image](https://user-images.githubusercontent.com/98496684/191837466-3eeb3ccc-2435-494f-9862-b04decf4001e.png)
 
