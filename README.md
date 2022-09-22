@@ -1,4 +1,4 @@
-CodeTube | Full Stack Application w/ Login and Registration, full CRUD with validations and access control using Python/Django
+CodeTube | Full Stack Application w/ Login and Registration, full CRUD with validations and access control using Python/Django, deployed w/AWS EC2
 
 Group Project Collaborators: Jake Miller, Jason Harrel, Joshua Becker, Sitora Pekker, Summer King
 
