@@ -35,6 +35,8 @@ DEBUG = True
 # Actual ip address / host goes here in the allowed host. (AWS instance IP)
 # When coding locally, comment it out.
 ALLOWED_HOSTS = []
+# This below local network testing
+# ALLOWED_HOSTS = ['*']
 
 # Application definition
 

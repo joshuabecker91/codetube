@@ -124,17 +124,8 @@ body {
     margin-top: 70px;
 }
 
-#sidebar {
-    display: block;
-}
 
-.sidebar {
-    height: 100%;
-    width: 230px;
-    min-width: 230px;
-    background-color: white;
-    overflow-y: scroll;
-}
+/* put sidebar back here */
 
 .sidebar__categories {
     width: 100%;
@@ -191,7 +182,7 @@ hr {
 .videos__container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin: 10px;
     height: auto;
@@ -336,6 +327,18 @@ button.like_form {
 
 /* ---------------------------@media--------------------------- */
 
+/* #sidebar {
+    display: block;
+} */
+
+.sidebar {
+    height: 100%;
+    width: 230px;
+    min-width: 230px;
+    background-color: white;
+    overflow-y: scroll;
+}
+
 @media (max-width: 425px) {
     .header__search {
         display: none;
@@ -378,6 +381,12 @@ button.like_form {
     }
 }
 
+@media (min-width: 769px) {
+    #menu {
+        opacity: .3;
+    }
+}
+
 /* @media (max-width: 768px) {
     .play__video__container {
         max-width: 650px;
@@ -399,5 +408,11 @@ button.like_form {
 @media (max-width: 849px) {
     .header__search input {
         max-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .videos__container {
+        justify-content: center;
     }
 }
