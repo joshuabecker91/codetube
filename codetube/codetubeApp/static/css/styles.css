@@ -22,7 +22,11 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-/* header */
+
+
+
+
+/* ---------------------------header--------------------------- */
 
 .material-icons {
     color: rgb(96, 96, 96);
@@ -104,9 +108,14 @@ body {
     border-radius: 0;
 }
 
-/* Sidebar */
+
+
+
+
+/* ---------------------------sidebar--------------------------- */
+
 .mainBody {
-    height: calc(100vh - 70px);
+    height: calc(100vh);
     display: flex;
     /* this disables scrolling */
     /* overflow: hidden; */ 
@@ -160,7 +169,11 @@ hr {
     border: none;
 }
 
-/* videos */
+
+
+
+
+/* ---------------------------videos--------------------------- */
 
 .videos {
     background-color: #f9f9f9;
@@ -292,10 +305,10 @@ button.like_form {
     margin-top: 60px;
 }
 
-.video__crud__form {
+/* .video__crud__form {
     padding-top: 70px;
     margin-left: 70px;
-}
+} */
 
 .sign__in {
     text-decoration: none;
@@ -308,18 +321,14 @@ button.like_form {
     text-decoration: underline;
 }
 
-.login_reg_forms {
-    padding-top: 70px;
+.forms {
+    margin-top: 70px;
 }
 
 .login__reg__logo {
     margin-top: 60px;
     /* text-align: center; */
 }
-
-
-
-
 
 
 
@@ -342,6 +351,14 @@ button.like_form {
     .sidebar {
         display: none;
     }
+
+    .show-sidebar {
+        display: inline;
+        position: fixed;
+        top: 4.4rem;
+        height: auto;
+    }
+
 }
 
 @media (max-width: 768px) {
