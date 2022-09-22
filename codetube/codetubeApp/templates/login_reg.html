@@ -86,7 +86,7 @@
                 <div class="col-10 d-flex justify-content-around forms">
 
                     {#Login Starts#}
-                    <div class="col-5 card p-4 login__reg__forms">
+                    <div class="col-5 card p-4">
                         <h4>Log In</h4>
                         <form action="/login/" method="post">
                             {% csrf_token %}
@@ -101,7 +101,7 @@
                             <input class="btn-sm btn-dark mt-3" type="submit" value="Log In"/>
                         </form>
                         <img class="col-6 login__reg__logo" src="..\static\img\codetubelogo.png" alt="codetube logo"/>
-                        <p class="col-6 mt-3">Your Trusted Source for Software Development Education</p>
+                        <p class="col-6 mt-3 trusted__source">Your Trusted Source for Software Development Education</p>
                     </div>
                     {#Login Ends#}
 
@@ -115,7 +115,7 @@
                     </div>
 
                     {#Registration Starts#}
-                    <div class="col-5 card p-4 login__reg__forms">
+                    <div class="col-5 card p-4">
                         <h4>Register</h4>
                         <form class="form" action="/register/" method="post">
                             {% csrf_token %}

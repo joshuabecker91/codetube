@@ -4,8 +4,6 @@ Group Project Collaborators: Jake Miller, Jason Harrel, Joshua Becker, Sitora Pe
 
 Technologies used: Python, Django, JS, SQLite, CSS, Bootstrap, HTML, Git, GitHub, AWS EC2
 
-*Group project, in final stages. Updates coming shortly.
-
 CodeTube is a full stack YouTube clone that is dedicated to software development. The videos, website, and all content is targeted to cater an audience that is learning how to code.
 
 - Demonstrate proficiency with using Git / GitHub on a team with multiple contributors.
@@ -21,84 +19,5 @@ CodeTube is a full stack YouTube clone that is dedicated to software development
 https://github.com/joshuabecker91/codetube
 
 
-
-
-
-----------------------------------------------------------------------------------------------------
-Proposal:
-
-Team: #1
-Project Title: CodeTube
-Project Stack: Python
-GitHub Repo: https://github.com/joshuabecker91/codetube
-
-Names of group members and their primary role on project:
--Front-End - Summer King and Sitora Pekker
--Models - Jason Harrel and Jake Miller
--Controllers - Josh Becker
-
-Project Description:
--CodeTube - A full stack YouTube clone, but dedicated to software development. An app/website where users 
--can share and watch videos similar to the look and feel of YouTube but called "CodeTube". The platform allows 
--users to watch content without being logged in. When users are logged in, they can CRUD videos via a video 
--source link to contribute to the app/website. The videos, website, and all content is targeted to cater an 
--audience that is learning how to code.
-
-New Programming Concept(s) We are Planning to Learn: 
--Django. Hoping to learn and use django, but with time constraints we may have to revert back to flask. 
-
-Project Technologies:
-    -Python
-    -Django (Flask if Django not viable in time provided)
-    -HTML, CSS, JS if needed
-    -Bootstrap
-
-Minimum Viable Product:
-    -Landing page with side menu and all videos(No Login necessary)
-    -Login and Registration with validation
-    -"Your Videos" link in menu that takes you to a page with all videos user added
-    -Avatar icon when signed in. Login/Register when not.
-    -User dashboard page showing videos user has added
-    -Create and edit video pages
-    -Show video page with edit/delete buttons if creator is logged in
-
-Project Backlog (After completing the MVP, we'll start to work on...):
-    -render videos randomly
-    -Video Like Button
-    -Number count of how many times video has been viewed
-    -Popular Videos Link(Rerenders landing page by times video viewed count)
-    -On video hover, video plays or just short clip
-    -Hamburger Toggle for menu
-    -Working search bar that renders results based on search
-    -Video comments
-    -copy video link
-    -Render 5-10 videos on show video page
-    -Logged in user avatar has first letter of first name instead of icon
-
-Project Responsibilities:
-    Summer 
-    - Leading HTML
-    - Available to help Sitora if/when needed
-
-    Sitora 
-    - Taking on Bootstrap and CSS (JS if any)
-    - Available to help Summer if/when needed 
-
-    Jason 
-    - Leading Object Model for Videos (CRUD)
-    - available to help Jake if/when needed
-    - please help Josh with Controllers if needed
-
-    Jake 
-    - Leading User Model for Login/Registration
-    - available to help Jason if/when needed
-    - please help Josh with Controllers if needed
-
-    Josh 
-    - Leading Controllers - User Controller, Object Controller
-    - available to help with Bootstrap & Styling if needed
-    - setup and help with GitHub if/when needed
-
-    Jason, Jake, Josh - all together setting up general backend, file structure, dependencies, server.py... and getting coordinated.
 
 "# codetube" 
