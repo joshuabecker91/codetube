@@ -17,7 +17,8 @@ CodeTube is a full stack YouTube clone that is dedicated to software development
 - Majority of CSS clone styling done manually to demonstrate proficiency in CSS styling.
 
 www.mycodetube.com
-AWS EC2 Deployed http://54.153.114.188/
+http://54.153.114.188/
+AWS EC2 Deployed 
 
 https://github.com/joshuabecker91/codetube
 
