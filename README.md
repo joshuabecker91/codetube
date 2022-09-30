@@ -2,7 +2,7 @@ CodeTube | Full Stack Application w/ Login and Registration, full CRUD with vali
 
 Group Project Collaborators: Jake Miller, Jason Harrel, Joshua Becker, Sitora Pekker, Summer King
 
-Technologies used: Python, Django, JS, SQLite, CSS, Bootstrap, HTML, Git, GitHub, AWS EC2
+Technologies used: Python, Django, JS, SQLite, CSS, Bootstrap, HTML, Git, GitHub, AWS EC2, Route 53
 
 CodeTube is a full stack YouTube clone that is dedicated to software development. The videos, website, and all content is targeted to cater an audience that is learning how to code.
 
